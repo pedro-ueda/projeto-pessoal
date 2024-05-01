@@ -1,0 +1,234 @@
+/* CONFIG. GERAIS */
+.inter-titulo {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    font-variation-settings:
+        "slnt" 0;
+}
+
+.inter-500 {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings:
+        "slnt" 0;
+}
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #333333;
+}
+
+.flex {
+    display: flex;
+}
+
+.amarelo {
+    color: #DFA100;
+}
+
+/* NAVBAR  */
+.nav-bar {
+    width: 100%;
+    height: 10vh;
+    gap: 5%;
+}
+
+.nav-link {
+    display: flex;
+    width: 10%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    color: #FFF;
+    cursor: pointer;
+}
+
+.box-logo {
+    width: 14%;
+}
+
+.box-logo a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    text-decoration: none;
+    padding: 1rem;
+    align-items: center;
+}
+
+.box-logo a img {
+    width: 17%;
+    margin-right: 1rem;
+}
+
+.box-logo a p {
+    color: #FFB904;
+}
+
+/* SEÇÃO 1 */
+
+.secao1 {
+    height: 100vh;
+    width: 100%;
+}
+
+.box-circulo-secao1 {
+    height: 100vh;
+    width: 50vw;
+    position: absolute;
+    top: 0;
+    right: 0;
+    overflow: hidden;
+}
+
+.circulo-secao1 {
+    width: 100%;
+    height: 100%;
+    background-color: #FFB904;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    right: -55%;
+}
+
+.box-beneficios-psicologicos {
+    width: fit-content;
+    height: fit-content;
+    margin: 2% auto;
+    position: relative;
+}
+
+.box-beneficios-psicologicos h1 {
+    font-size: 85px;
+    text-align: justify;
+    color: #FFB904;
+}
+
+.box-maior-conteudo {
+    gap: 5%;
+}
+
+.box-conteudo {
+    width: 50vw;
+    height: 50vh;
+    margin: 0 0 0 20vh;
+    color: #FFF;
+    margin-bottom: 35%;
+}
+
+.box-conteudo h1 {
+    font-size: 70px;
+}
+
+.box-conteudo p {
+    font-size: 20px;
+}
+
+.box-maior-conteudo .box-img {
+    width: 40vh;
+    height: 40vh;
+    background-color: #FFF;
+    z-index: 1;
+    border-radius: 50%;
+}
+
+.box-maior-conteudo .box-img img{
+    width: 100%;
+    height: 100%;
+    border: solid 2px black;
+    border-radius: 50%;
+}
+
+.box-circulo-secao1-2 {
+    position: absolute;
+    width: 27vw;
+    height: 50vh;
+    top: 80%;
+}
+
+.circulo-secao1-2 {
+    width: 100%;
+    height: 100%;   
+    background-color: #FFB904;
+    border-radius: 50%;
+    position: absolute;
+    left: -50%;
+    z-index: 1;
+}
+
+/* SEÇÃO 2 */
+
+.secao2 {
+    background-color: #6e6e6e;
+    height: 100vh;
+    width: 100%;
+    margin-top: -5%;
+    position: relative;
+    overflow: hidden;
+}
+
+.box-maior-conteudo2 {
+    margin: 20% 0 0 0;
+    gap: 5%;
+}
+
+.box-maior-conteudo2 .box-img2 {
+    width: 40vh;
+    height: 40vh;
+    background-color: #FFF;
+    z-index: 1;
+    border-radius: 50%;
+}
+
+.box-maior-conteudo2 .box-img2 img{
+    width: 100%;
+    height: 100%;
+    border: solid 2px black;
+    border-radius: 50%;
+}
+
+.box-conteudo-secao2 {
+    width: 40%;
+    height: 50%;
+    position: relative;
+    margin: 0 0 0 20vh;
+    top: 20%;
+    color: #FFF;
+}
+
+.box-conteudo-secao2 h1 {
+    font-size: 70px;
+}
+
+.box-conteudo-secao2 p {
+    font-size: 20px;
+}
+
+.box-circulo-secao2 {
+    height: 100%;
+    width: 50%;
+    /* background-color: #FFB904; */
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.circulo-secao2 {
+    width: 100%;
+    height: 100%;
+    background-color: #FFB904;
+    border-radius: 50%;
+    position: absolute;
+    right: -30%;
+    top: 40%;
+}
