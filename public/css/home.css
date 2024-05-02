@@ -26,6 +26,7 @@
 
 body {
     background-color: #333333;
+    overflow-x: hidden;
 }
 
 .flex {
@@ -45,6 +46,7 @@ body {
     width: 100%;
     height: 10vh;
     gap: 5%;
+    margin-left: 6rem;
 }
 
 .nav-link {
@@ -84,36 +86,28 @@ body {
 .secao1 {
     height: 100vh;
     width: 100%;
-}
-
-.box-circulo-secao1 {
-    height: 100vh;
-    width: 50vw;
-    position: absolute;
-    top: 0;
-    right: 0;
-    overflow: hidden;
+    margin-left: 6rem;
 }
 
 .circulo-secao1 {
-    width: 100%;
-    height: 100%;
+    width: 100vh;
+    height: 100vh;
     background-color: #FFB904;
     border-radius: 50%;
     position: absolute;
     top: 0;
-    right: -55%;
+    right: -25%;
 }
 
 .box-beneficios-psicologicos {
-    width: fit-content;
+    width: auto;
     height: fit-content;
-    margin: 2% auto;
     position: relative;
+    margin: 7vh 0;
 }
 
 .box-beneficios-psicologicos h1 {
-    font-size: 106px;
+    font-size: 82px;
     text-align: justify;
     color: #FFB904;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.7)
@@ -126,7 +120,6 @@ body {
 .box-conteudo {
     width: 50vw;
     height: 50vh;
-    margin: 0 0 0 20vh;
     color: #FFF;
     margin-bottom: 35%;
 }
@@ -141,34 +134,28 @@ body {
 }
 
 .box-maior-conteudo .box-img {
-    width: 40vh;
-    height: 40vh;
+    width: 50vh;
+    height: 50vh;
     background-color: #FFF;
     z-index: 1;
     border-radius: 50%;
 }
 
-.box-maior-conteudo .box-img img{
+.box-maior-conteudo .box-img img {
     width: 100%;
     height: 100%;
     border: solid 2px black;
     border-radius: 50%;
 }
 
-.box-circulo-secao1-2 {
-    position: absolute;
-    width: 27vw;
-    height: 50vh;
-    top: 80%;
-}
-
 .circulo-secao1-2 {
-    width: 100%;
-    height: 100%;   
+    width: 300px;
+    height: 300px;
     background-color: #FFB904;
     border-radius: 50%;
     position: absolute;
-    left: -50%;
+    left: -10%;
+    top: 80%;
     z-index: 1;
 }
 
@@ -177,24 +164,24 @@ body {
 .secao2 {
     height: 100vh;
     width: 100%;
-    margin-top: 15%;
+    margin-top: 10%;
     position: relative;
 }
 
 .box-maior-conteudo2 {
-    margin: 10% 0 0 0;
-    gap: 3%;
+    gap: 16%;
+    margin-left: 20vh;
 }
 
 .box-maior-conteudo2 .box-img2 {
-    width: 40vh;
-    height: 40vh;
+    width: 60vh;
+    height: 60vh;
     background-color: #FFF;
     z-index: 1;
     border-radius: 50%;
 }
 
-.box-maior-conteudo2 .box-img2 img{
+.box-maior-conteudo2 .box-img2 img {
     width: 100%;
     height: 100%;
     border: solid 2px black;
@@ -206,37 +193,27 @@ body {
     width: 40%;
     height: 50%;
     position: relative;
-    margin: 0 0 0 20vh;
     top: 20%;
     color: #FFF;
 }
 
 .box-conteudo-secao2 h1 {
-    font-size: 70px;
+    font-size: 60px;
 }
 
 .box-conteudo-secao2 p {
-    font-size: 20px;
+    font-size: 16px;
     text-align: initial;
     margin-top: 4%;
 }
 
-.box-circulo-secao2 {
-    height: 100%;
-    width: 50%;
-    position: absolute;
-    top: 0;
-    right: 0;
-    overflow: hidden;
-}
-
 .circulo-secao2 {
-    width: 100%;
-    height: 100%;
+    width: 650px;
+    height: 650px;
     background-color: #FFB904;
     border-radius: 50%;
     position: absolute;
-    right: -30%;
+    right: -20%;
     top: 0;
     z-index: 1;
 }
@@ -254,18 +231,18 @@ body {
 .box-maior-conteudo3 {
     gap: 10%;
     position: relative;
-    top: 20%;
+    top: 70%;
 }
 
 .box-maior-conteudo3 .box-img3 {
-    width: 40vh;
-    height: 40vh;
+    width: 60vh;
+    height: 60vh;
     background-color: #FFF;
     z-index: 1;
     border-radius: 50%;
 }
 
-.box-maior-conteudo3 .box-img3 img{
+.box-maior-conteudo3 .box-img3 img {
     width: 100%;
     height: 100%;
     border: solid 2px black;
@@ -287,53 +264,49 @@ body {
 }
 
 .box-conteudo-secao3 p {
-    font-size: 20px;
+    font-size: 18px;
     text-align: initial;
     margin-top: 4%;
 }
 
-.box-circulo-secao3 {
-    height: 100%;
-    width: 50%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    z-index: 2;
-}
-
-.circulo-secao3 {
-    width: 100%;
-    height: 100%;
-    background-color: #FFB904;
-    border-radius: 50%;
-    position: absolute;
-    left: -30%;
-    bottom: -60%;
-    z-index: 1;
+.secao3 .circulo-secao1-2 {
+    top: 130%;
 }
 
 /* SEÇÃO 4 */
 
-/* .secao4 {
-    background-color: #6e6e6e;
+.secao4 {
     height: 100vh;
     width: 100%;
     position: relative;
     z-index: -1;
-} */
+}
 
-.box-maior-conteudo4{
+.box-maior-conteudo4 {
     gap: 10%;
     position: relative;
-    top: 20%;
+    top: 80%;
+    margin-left: 20vh;
+    margin-top: 100vh;
+    margin-bottom: 15vh;
 }
 
 .box-conteudo-secao4 {
     width: 40%;
     height: 50%;
     position: relative;
-    margin: 0 0 0 20vh;
     top: 20%;
     color: #FFF;
+}
+
+.box-conteudo-secao4 h1 {
+    font-size: 44px;
+}
+
+.box-maior-conteudo4 .box-img4 {
+    width: 60vh;
+    height: 60vh;
+    background-color: #FFF;
+    z-index: 1;
+    border-radius: 50%;
 }
