@@ -107,10 +107,9 @@ body {
 .conteudo {
     width: 80vw;
     height: 30vh;
-    border: solid 3px #FFF;
     color: #FFF;
     margin-bottom: 3%;
-    padding: 1%;
+    padding: 2%;
 }
 
 .titulo {
@@ -124,4 +123,6 @@ body {
 .direito {
     margin-left: 20%;
     text-align: end;
+    padding-right: 2.2%;
+    text-align: justify;
 }
