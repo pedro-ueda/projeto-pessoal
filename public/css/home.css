@@ -48,7 +48,7 @@ body {
     gap: 5%;
     padding-left: 6rem;
     position: fixed;
-    z-index: 1;
+    z-index: 10000;
     top: 0;
     transition: .3s;
 }

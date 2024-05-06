@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Especial</title>
+    <link rel="stylesheet" href="./css/quiz.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- NAVBAR  -->
+    <div class="nav-bar flex">
+        <div class="box-logo nav-link">
+            <a href="index.html">
+                <img src="assets/logologo.svg">
+                <p class="inter-titulo">PSICHOBODY</p>
+            </a>
+        </div>
+
+        <div class="nav-link">
+            <a href="home.html">
+                <p class="inter-titulo">HOME</p>
+            </a>
+        </div>
+
+        <div class="nav-link">
+            <a href="orientacoes.html">
+                <p class="inter-titulo">ORIENTAÇÕES</p>
+            </a>
+        </div>
+
+        <div class="nav-link">
+            <a href="quiz.html">
+                <p class="inter-titulo amarelo">QUIZ ESPECIAL</p>
+            </a>
+        </div>
+
+        <div class="nav-link">
+            <a href="sobreMim.html">
+                <p class="inter-titulo">SOBRE MIM </p>
+            </a>
+        </div>
+
+        <div class="box-btn-login flex">
+            <a href="login.html"><button class="btn-login inter-titulo">LOGIN</button></a>
+        </div>
+    </div>
+
+
+    <!-- CONTEÚDO -->
+
+    <div class="sombra" id="div_msg">
+        <h1 class="inter-titulo">CLIQUE AQUI PARA COMEÇAR O QUIZ!</h1>
+
+        <button onclick="mostrarQuiz()" class="btn-clique-aqui inter-titulo">Clique aqui!</button>
+
+</body>
+
+</html>
+
+<script>
+    var respostasUsuarios = [];
+
+    function mostrarQuiz() {
+
+        div_msg.innerHTML = "";
+
+        div_msg.innerHTML = `<div class="box-titulo flex">
+            <h1 class="inter-titulo titulo-quiz">1. Pergunta</h1>
+        </div>
+
+        <p class="inter-p">Como você se identifica?</p>
+
+        <select id="sl_genero" class="sombra">
+            <option value="#">Selecione seu gênero</option>
+            <option value="homem">Homem</option>
+            <option value="mulher">Mulher</option>
+        </select>
+
+        <button class="enviar sombra inter-titulo" onclick="pergunta2()">Enviar</button>
+    </div>`;
+
+
+    }
+
+    function pergunta2() {
+
+        respostasUsuarios.push(sl_genero.value);
+
+        div_msg.innerHTML = `<div class="box-titulo flex">
+            <h1 class="inter-titulo titulo-quiz">2. Pergunta</h1>
+        </div>
+
+        <p class="inter-p">Você pratica musculação?</p>
+
+        <select id="sl_praticaMusculacao" class="sombra">
+            <option value="#">Selecione uma opção</option>
+            <option value="sim">Sim</option>
+            <option value="nao">Não</option>
+        </select>
+
+        <button class="enviar sombra inter-titulo" onclick="pergunta3()">Enviar</button>
+    </div>`;
+
+    }
+
+    function pergunta3() {
+
+        respostasUsuarios.push(sl_praticaMusculacao.value);
+
+        div_msg.innerHTML = `<div class="box-titulo flex">
+            <h1 class="inter-titulo titulo-quiz">3. Pergunta</h1>
+        </div>
+
+        <p class="inter-p">Há quanto tempo você treina?</p>
+
+        <select id="sl_praticaMusculacao" class="sombra">
+            <option value="#">Selecione uma opção</option>
+            <option>Não treino</option>
+            <option>Menos de 1 ano</option>
+            <option>Entre 1 ano e 3 anos</option>
+            <option>4 anos ou mais</option>
+        </select>
+
+        <button class="enviar sombra inter-titulo" onclick="pergunta4()">Enviar</button>
+    </div>`;
+
+    }
+
+    function pergunta4() {
+
+        respostasUsuarios.push(sl_praticaMusculacao.value);
+
+        div_msg.innerHTML = `
+        <div class="box-titulo flex">
+            <h1 class="inter-titulo titulo-quiz">4. Pergunta</h1>
+        </div>
+
+        <p class="inter-p">Por que você começou a treinar?</p>
+
+        <select id="sl_motivo" class="sombra">
+            <option value="#">Selecione uma opção</option>
+            <option>Saúde</option>
+            <option>Estética</option>
+            <option>Outros</option>
+        </select>
+
+        <button class="enviar sombra inter-titulo" onclick="pergunta5()">Enviar</button>
+    </div>`;
+    }
+
+    function pergunta5() {
+        respostasUsuarios.push(sl_motivo.value);
+
+        div_msg.innerHTML = `
+        <div class="box-titulo flex">
+            <h1 class="inter-titulo titulo-quiz">5. Pergunta</h1>
+        </div>
+
+        <p class="inter-p">Qual membro você prefere treinar?</p>
+
+        <select id="sl_membro" class="sombra">
+            <option value="#">Selecione uma opção</option>
+            <option>Inferiores</option>
+            <option>Superiores</option>
+        </select>
+
+        <button class="enviar sombra inter-titulo" onclick="pergunta6()">Enviar</button>
+    </div>`;
+    
+    }
+
+    function pergunta6() {
+        respostasUsuarios.push(sl_membro.value);
+
+    }
+</script>
