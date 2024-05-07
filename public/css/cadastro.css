@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 /* CONFIG. GERAIS */
 .inter-titulo {
   font-family: "Inter", sans-serif;
@@ -5,7 +7,7 @@
   font-weight: 800;
   font-style: normal;
   font-variation-settings:
-      "slnt" 0;
+    "slnt" 0;
 }
 
 .bebas-neue-regular {
@@ -20,7 +22,7 @@
   font-weight: 500;
   font-style: normal;
   font-variation-settings:
-      "slnt" 0;
+    "slnt" 0;
 }
 
 
@@ -101,11 +103,10 @@ body {
 }
 
 .box-btn-login {
-  width: 18%;
+  width: 13%;
   height: 100%;
   align-items: center;
   justify-content: center;
-  padding: 3px;
 }
 
 .box-btn-login a {
@@ -114,7 +115,6 @@ body {
   display: flex;
   align-items: center;
   text-decoration: none;
-  padding: 3px;
 }
 
 .btn-login {
@@ -142,7 +142,6 @@ body {
   width: 80%;
   margin: 5% auto;
 }
-
 
 /* LOGIN */
 
@@ -231,7 +230,7 @@ body {
 
 .loading-div {
   width: 50px;
-  display: block;
+  display: none;
 }
 
 .loading-div img {
@@ -243,9 +242,10 @@ body {
   display: none
 }
 
+
 /* FORMULARIO */
 
-.alerta_erro{
+.alerta_erro {
   display: flex;
   justify-content: flex-end;
 }
@@ -264,7 +264,7 @@ body {
   margin-top: 10%;
 }
 
-.card_erro #mensagem_erro{
+.card_erro #mensagem_erro {
   font-weight: 500;
   font-size: 20px;
 }
@@ -287,20 +287,6 @@ input {
   border-radius: 10px;
 }
 
-.btn {
-  font-family: "Barlow", sans-serif;
-  border: 0;
-  border-radius: 5px;
-  font-weight: 600;
-  font-size: 18px;
-  padding: 10px 15px;
-  color: white;
-  background-color: #e6005a;
-  width: 120px;
-  align-self: center;
-  margin-top: 5px;
-}
-
 .loading-div {
   width: 50px;
   margin: auto;
@@ -310,63 +296,4 @@ input {
 .loading-div img {
   height: 50px;
   width: 50px;
-}
-
-/* SIMULADOR */
-
-.simulador {
-  color: white;
-}
-
-.simulador .container {
-  flex-direction: column;
-  overflow: scroll; 
-  height: var(--tamanho-simulador);
-}
-
-/* ALERTA */
-
-#alerta {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-}
-
-.mensagem-alarme {
-  background-color: white;
-  border-radius: 5px;
-  width: 300px;
-  height: 80px;
-  margin: 10px;
-  padding: 10px 0;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.mensagem-alarme h3 {
-  font-size: 14px;
-  margin: 0;
-}
-
-.mensagem-alarme .informacao {
-  width: 66%;
-}
-
-.alarme-sino {
-  width: 48px;
-  height: 48px;
-  animation-name: bell;
-  animation-duration: 4s;
-  background-image: url('https://cdn-icons-png.flaticon.com/512/1157/1157000.png');
-  background-size: cover;
-  animation-iteration-count: infinite;
-}
-
-@keyframes bell {
-  0%   {transform: rotate(25deg)}
-  25%  {transform: rotate(-25deg)}
-  50%  {transform: rotate(25deg)}
-  75%  {transform: rotate(-25deg)}
-  100% {transform: rotate(25deg)}
 }

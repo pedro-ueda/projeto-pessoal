@@ -6,79 +6,101 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>AquaTech | Login</title>
+    <title>Login</title>
 
     <script src="./js/sessao.js"></script>
 
     <link rel="stylesheet" href="./css/estilo.css">
-    <link rel="icon" href="./assets/icon/favicon2.ico">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="icon" href="./assets/logologo.svg">
 </head>
 
 <body>
 
-    <!--Header-->
+    <!--NAVBAR-->
 
-    <div class="header">
-        <div class="container">
-            <h1 class="titulo">AquaTech</h1>
-            <ul class="navbar">
-                <li>
-                    <a href="index.html">Inicial</a>
-                </li>
-                <li>
-                    <a href="simulador.html">Simulador</a>
-                </li>
-                <li>|</li>
-                <li class="agora">
-                    <a href="#">Login</a>
-                </li>
-                <li>
-                    <a href="cadastro.html">Cadastro</a>
-                </li>
-            </ul>
+    <div class="nav-bar flex">
+        <div class="box-logo nav-link">
+            <a href="index.html">
+                <img src="assets/logologo.svg">
+                <p class="inter-titulo">PSICHOBODY</p>
+            </a>
+        </div>
+
+        <div class="nav-link">
+            <a href="home.html">
+                <p class="inter-titulo">HOME</p>
+            </a>
+        </div>
+
+        <div class="nav-link">
+            <a href="orientacoes.html">
+                <p class="inter-titulo amarelo">ORIENTAÇÕES</p>
+            </a>
+        </div>
+
+        <div class="nav-link">
+            <a href="quiz.html">
+                <p class="inter-titulo">QUIZ ESPECIAL</p>
+            </a>
+        </div>
+
+        <div class="nav-link">
+            <a href="sobreMim.html">
+                <p class="inter-titulo">SOBRE MIM </p>
+            </a>
+        </div>
+
+        <div class="box-btn-login flex">
+            <a href="cadastro.html"><button class="btn-login inter-titulo">CADASTRE-SE</button></a>
         </div>
     </div>
+
+    <!-- CONTEÚDO -->
 
 
     <div class="login">
         <div class="alerta_erro">
-            <div class="card_erro" id="cardErro">
+            <div class="card_erro inter-titulo" id="cardErro">
                 <span id="mensagem_erro"></span>
             </div>
         </div>
+
+
         <div class="container">
             <div class="card card-login">
-                <h2>Olá de volta!</h2>
+                <h2 class="bebas-neue-regular">SEJA BEM-VINDO DE VOLTA!</h2>
+
                 <div class="formulario">
                     <div class="campo">
-                        <span>E-mail:</span>
-                        <input id="email_input" type="text" placeholder="Login">
+                        <span class="inter-titulo">E-mail:</span>
+                        <input class="sombra" id="email_input" type="text" placeholder="E-mail">
                     </div>
                     <div class="campo">
-                        <span>Senha:</span>
-                        <input id="senha_input" type="password" placeholder="******">
+                        <span class="inter-titulo">Senha:</span>
+                        <input class="sombra" id="senha_input" type="password" placeholder="******">
                     </div>
-                    <button class="botao" onclick="entrar()">Entrar</button>
+                    <button class="botao bebas-neue-regular sombra" onclick="entrar()">ENTRAR</button>
+                </div>
+
+                <div>
+                    <span class="inter-titulo">Ainda não tem uma conta? <a href="cadastro.html">Crie a sua!</a></span>
                 </div>
 
                 <div id="div_aguardar" class="loading-div">
-                    <img src="./assets/circle-loading.gif" id="loading-gif">
+                    <img src="./assets/ZNeT.gif" id="loading-gif">
                 </div>
 
-                <div id="div_erros_login"></div>
+                <div class="inter-500" id="div_erros_login"></div>
             </div>
         </div>
     </div>
-
-    <!--footer inicio-->
-    <div class="footer">
-        <div class="container">
-            <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023</h4>
-            <span class="version">v1.0.0</span>
-        </div>
-    </div>
-    <!--footer fim-->
 
 </body>
 
@@ -95,7 +117,7 @@
 
         if (emailVar == "" || senhaVar == "") {
             cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            mensagem_erro.innerHTML = "Todos os campos estão vazios!";
             finalizarAguardar();
             return false;
         }
