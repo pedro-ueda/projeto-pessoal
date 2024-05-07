@@ -47,7 +47,7 @@
 
     <div class="nav-link">
       <a href="quiz.html">
-        <p class="inter-titulo">QUIZ ESPECIAL</p>
+        <p class="inter-titulo">QUESTIONÁRIO ESPECIAL</p>
       </a>
     </div>
 
@@ -81,19 +81,31 @@
 
           <div class="campo">
             <span class="inter-titulo">Nome:</span>
-            <input class="sombra" id="nome_input" type="text" placeholder="Insira seu nome" />
+            <input onblur="validarNome()" class="sombra" id="nome_input" type="text" placeholder="Insira seu nome" />
+
+            <p class="erro_input inter-500" id="erro_input_nome"></p>
           </div>
           <div class="campo">
             <span class="inter-titulo">E-mail:</span>
-            <input class="sombra" id="email_input" type="text" placeholder="Insira seu e-mail" />
+            <input onblur="validarEmail()" class="sombra" id="email_input" type="text"
+              placeholder="Insira seu e-mail" />
+
+            <p class="erro_input inter-500" id="erro_input_email"></p>
           </div>
           <div class="campo">
             <span class="inter-titulo">Senha:</span>
-            <input class="sombra" id="senha_input" type="password" placeholder="******" />
+            <input onkeydown="validarSenha()" class="sombra" id="senha_input" type="password" placeholder="******" /> 
+
+            <div class="flex box-seguranca-senha">
+              <p class="inter-500 segurança-senha">Segurança da senha </p>
+              <div id="bolinha_senha" class="bolinha-senha"></div>
+            </div>
+            <p class="erro_input inter-500" id="erro_input_senha"></p>
           </div>
           <div class="campo">
             <span class="inter-titulo">Confirmação da Senha:</span>
-            <input class="sombra" id="confirmacao_senha_input" type="password" placeholder="******" />
+            <input onkeyup="confirmarSenha()" class="sombra" id="confirmacao_senha_input" type="password" placeholder="******" />
+            <p class="erro_input inter-500" id="erro_input_confirmacao"></p>
           </div>
           <button class="botao sombra bebas-neue-regular" onclick="cadastrar()">Cadastrar</button>
         </div>
@@ -180,5 +192,71 @@
 
   function sumirMensagem() {
     cardErro.style.display = "none";
+  }
+
+  function validarNome() {
+    var nomeVar = nome_input.value;
+
+    if (nomeVar == "") {
+      erro_input_nome.innerHTML = "Seu nome está vazio!";
+    }
+  }
+
+  function validarEmail() {
+    var emailVar = email_input.value;
+
+    if (emailVar == "") {
+      erro_input_email.innerHTML = "Seu e-mail está vazio!";
+    }
+  }
+
+  function validarSenha() {
+    var senhaVar = senha_input.value;
+    var letrasMaiusculas = /[A-Z]/;
+    var letrasMinusculas = /[a-z]/;
+    var numeros = /[0-9]/;
+    var caracteresEspeciais = /[!|@|#|$|%|^|&|*|(|)|-|_]/;
+    var auxMaiuscula = 0;
+    var auxMinuscula = 0;
+    var auxNumero = 0;
+    var auxEspecial = 0;
+
+    if (senhaVar.length > 8) {
+      bolinha_senha.style.backgroundColor = "yellow";
+
+      if (letrasMaiusculas.test(senhaVar)) {
+        auxMaiuscula++;
+      }
+
+      if(letrasMinusculas.test(senhaVar)) {
+        auxMinuscula++;
+      }
+
+      if(caracteresEspeciais.test(senhaVar)){
+        auxEspecial++;
+      }
+
+      if(auxMaiuscula > 0 && auxMinuscula > 0 && auxEspecial > 0) {
+        bolinha_senha.style.backgroundColor = "green";
+        erro_input_senha.innerHTML = "";
+      } else{
+        erro_input_senha.innerHTML = "Sua senha deve ter ao menos 1 caractere maiúsculo, 1 minúsculo e 1 especial.";
+      }
+
+    } else {
+      bolinha_senha.style.backgroundColor = "red";
+      erro_input_senha.innerHTML = "Sua senha deve ter ao menos 8 caractéres";
+    }
+  }
+
+  function confirmarSenha() {
+    var confirmacaoSenhaVar = confirmacao_senha_input.value;
+    var senhaVar = senha_input.value;
+
+    if(confirmacaoSenhaVar != senhaVar) {
+      erro_input_confirmacao.innerHTML = "As senhas não se coicidem!"
+    }else {
+      erro_input_confirmacao.innerHTML = "";
+    }
   }
 </script>
