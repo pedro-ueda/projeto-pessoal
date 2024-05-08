@@ -188,3 +188,11 @@ body {
 .titulo-quiz {
     text-align: start;
 }
+
+.input-questionario {
+    width: 40%;
+    height: 10%;
+    border: none;
+    border-radius: 5px;
+    margin-top: 5%;
+}
