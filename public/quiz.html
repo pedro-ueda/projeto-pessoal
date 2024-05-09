@@ -59,19 +59,12 @@
     <!-- CONTEÚDO -->
 
     <div class="sombra" id="div_msg">
-        <!-- <h1 class="inter-titulo">CLIQUE AQUI PARA COMEÇAR O QUESTIONÁRIO!</h1>
+        <h1 class="inter-titulo">CLIQUE AQUI PARA COMEÇAR O QUESTIONÁRIO!</h1>
 
-        <button onclick="mostrarQuiz()" class="btn-clique-aqui inter-titulo">Clique aqui!</button> -->
+        <h4 class="inter-titulo">Responda o questinário com atenção pois não tem como voltar atrás nas respostas. Caso tenha respondido alguma pergunta errada você terá que fazer todo o questionário de novo!</h3>
 
-        <div class="box-titulo flex">
-            <h1 class="inter-titulo titulo-quiz">6. Pergunta</h1>
-        </div>
+        <button onclick="mostrarQuiz()" class="btn-clique-aqui inter-titulo">Clique aqui!</button>
 
-        <p class="inter-p">Qual nota você daria para sua saúde mental (autoestima, disposição e etc) antes de começar a academia?</p>
-
-        <input class="input-questionario" type="number" placeholder="Insira aqui sua nota">
-
-        <button class="enviar sombra inter-titulo" onclick="pergunta3()">Enviar</button>
     </div>
 
 </body>
@@ -80,6 +73,7 @@
 
 <script>
     var respostasUsuarios = [];
+    var praticaMusculacao;
 
     function mostrarQuiz() {
 
@@ -105,9 +99,12 @@
 
     function pergunta2() {
 
-        respostasUsuarios.push(sl_genero.value);
+        if (sl_genero.value == "#") {
+            div_msg.innerHTML += `<br> <span class="inter-p">Esta não é uma opção válida!</span>`;
+        } else {
+            respostasUsuarios.push(sl_genero.value);
 
-        div_msg.innerHTML = `<div class="box-titulo flex">
+            div_msg.innerHTML = `<div class="box-titulo flex">
             <h1 class="inter-titulo titulo-quiz">2. Pergunta</h1>
         </div>
 
@@ -121,22 +118,25 @@
 
         <button class="enviar sombra inter-titulo" onclick="pergunta3()">Enviar</button>
     </div>`;
-
+        }
     }
 
     function pergunta3() {
+        praticaMusculacao = sl_praticaMusculacao.value;
 
-        respostasUsuarios.push(sl_praticaMusculacao.value);
+        if (praticaMusculacao == "#") {
+            div_msg.innerHTML += `<br> <span class="inter-p">Esta não é uma opção válida!</span>`;
+        } else if(praticaMusculacao == "sim"){
+            respostasUsuarios.push(praticaMusculacao);
 
-        div_msg.innerHTML = `<div class="box-titulo flex">
+            div_msg.innerHTML = `<div class="box-titulo flex">
             <h1 class="inter-titulo titulo-quiz">3. Pergunta</h1>
         </div>
 
         <p class="inter-p">Há quanto tempo você treina?</p>
 
-        <select id="sl_praticaMusculacao" class="sombra">
+        <select id="sl_tempoDePratica" class="sombra">
             <option value="#">Selecione uma opção</option>
-            <option>Não treino</option>
             <option>Menos de 1 ano</option>
             <option>Entre 1 ano e 3 anos</option>
             <option>4 anos ou mais</option>
@@ -145,34 +145,46 @@
         <button class="enviar sombra inter-titulo" onclick="pergunta4()">Enviar</button>
     </div>`;
 
+        }else mandarParaDash();
+
+
     }
 
     function pergunta4() {
 
-        respostasUsuarios.push(sl_praticaMusculacao.value);
+        if (sl_tempoDePratica.value == "#") {
+            div_msg.innerHTML += `<br> <span class="inter-p">Esta não é uma opção válida!</span>`;
+        } else {
+                respostasUsuarios.push(sl_tempoDePratica.value);
 
-        div_msg.innerHTML = `
-        <div class="box-titulo flex">
-            <h1 class="inter-titulo titulo-quiz">4. Pergunta</h1>
-        </div>
+                div_msg.innerHTML = `
+            <div class="box-titulo flex">
+                <h1 class="inter-titulo titulo-quiz">4. Pergunta</h1>
+            </div>
 
-        <p class="inter-p">Por que você começou a treinar?</p>
+            <p class="inter-p">Por que você começou a treinar?</p>
 
-        <select id="sl_motivo" class="sombra">
-            <option value="#">Selecione uma opção</option>
-            <option>Saúde</option>
-            <option>Estética</option>
-            <option>Outros</option>
-        </select>
+            <select id="sl_motivo" class="sombra">
+                <option value="#">Selecione uma opção</option>
+                <option>Saúde</option>
+                <option>Estética</option>
+                <option>Outros</option>
+            </select>
 
-        <button class="enviar sombra inter-titulo" onclick="pergunta5()">Enviar</button>
-    </div>`;
+            <button class="enviar sombra inter-titulo" onclick="pergunta5()">Enviar</button>
+        </div>`;
+                
+        }
     }
 
     function pergunta5() {
-        respostasUsuarios.push(sl_motivo.value);
 
-        div_msg.innerHTML = `
+        if (sl_motivo.value == "#") {
+            div_msg.innerHTML += `<br> <span class="inter-p">Esta não é uma opção válida!</span>`;
+        } else {
+            respostasUsuarios.push(sl_motivo.value);
+
+            div_msg.innerHTML = `
         <div class="box-titulo flex">
             <h1 class="inter-titulo titulo-quiz">5. Pergunta</h1>
         </div>
@@ -187,11 +199,61 @@
 
         <button class="enviar sombra inter-titulo" onclick="pergunta6()">Enviar</button>
     </div>`;
-    
+
+        }
+
     }
 
-    function pergunta6() {
-        respostasUsuarios.push(sl_membro.value);
+    var autoEstimaAntes;
 
+    function pergunta6() {
+
+        if (sl_membro.value == "#") {
+            div_msg.innerHTML += `<br> <span class="inter-p">Esta não é uma opção válida!</span>`;
+        } else {
+            respostasUsuarios.push(sl_membro.value);
+
+            div_msg.innerHTML = `
+            <div class="box-titulo flex">
+            <h1 class="inter-titulo titulo-quiz">6. Pergunta</h1>
+            </div>
+
+            <p class="inter-p">Qual nota você daria para sua saúde mental (autoestima, disposição, etc) <b>antes</b> de começar a treinar?</p>
+
+            <input id="input_autoEstimaAntes" class="input-questionario sombra" type="number" placeholder="Insira aqui sua nota">
+
+            <button class="enviar sombra inter-titulo" onclick="pergunta7()">Enviar</button>`;
+
+        }
+    }
+
+    function pergunta7() {
+
+            if(input_autoEstimaAntes.value == "") {
+                div_msg.innerHTML += `<br> <span class="inter-p">É necessário inserir algum valor para prosseguir!</span>`;
+            }else { 
+                respostasUsuarios.push(autoEstimaAntes);
+
+                div_msg.innerHTML = `
+                    <div class="box-titulo flex">
+                    <h1 class="inter-titulo titulo-quiz">7. Pergunta</h1>
+                    </div>
+
+                    <p class="inter-p">Qual nota você daria para sua saúde mental (autoestima, disposição, etc) <b>depois</b> de começar a treinar?</p>
+
+                    <input id="input_autoEstimaDepois" class="input-questionario sombra" type="number" placeholder="Insira aqui sua nota">
+
+                    <button class="enviar sombra inter-titulo" onclick="mostrarDashboard()">Enviar</button>`;
+            }
+    }
+
+    function mostrarDashboard() {
+        if(input_autoEstimaDepois.value == "") {
+                div_msg.innerHTML += `<br> <span class="inter-p">É necessário inserir algum valor para prosseguir!</span>`;
+            }else mandarParaDash()
+    }
+
+    function mandarParaDash() {
+        window.location.href = 'index.html';
     }
 </script>

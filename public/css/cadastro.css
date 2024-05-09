@@ -55,7 +55,7 @@ body {
   height: 10vh;
   gap: 5%;
   padding-left: 6rem;
-  background-color: #333333;
+  background-color: #2c2c2c;
   position: fixed;
   top: 0;
   transition: .3s;
@@ -74,10 +74,6 @@ body {
   justify-content: center;
   color: #FFF;
   cursor: pointer;
-}
-
-.nav-bar:hover {
-  background-color: #2c2c2c;
 }
 
 .box-logo {
@@ -323,4 +319,10 @@ input {
   align-items: center;
   height: 20px;
   margin-top: 2%;
+}
+
+#ch_mostrarSenha {
+  cursor: pointer;
+  margin-left: 1%;
+  margin-top: .7%;
 }

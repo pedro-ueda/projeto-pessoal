@@ -94,7 +94,7 @@
           </div>
           <div class="campo">
             <span class="inter-titulo">Senha:</span>
-            <input onkeydown="validarSenha()" class="sombra" id="senha_input" type="password" placeholder="******" /> 
+            <input onkeyup="validarSenha()" class="sombra" id="senha_input" type="password" placeholder="******" /> 
 
             <div class="flex box-seguranca-senha">
               <p class="inter-500 segurança-senha">Segurança da senha </p>
@@ -106,6 +106,14 @@
             <span class="inter-titulo">Confirmação da Senha:</span>
             <input onkeyup="confirmarSenha()" class="sombra" id="confirmacao_senha_input" type="password" placeholder="******" />
             <p class="erro_input inter-500" id="erro_input_confirmacao"></p>
+
+            <label>
+            <div class="flex box-seguranca-senha">
+              
+              <p class="inter-500 segurança-senha">Mostrar senha</p>
+                <input onclick="mostrarSenha()" type="checkbox" id="ch_mostrarSenha">
+            </div>
+          </label>
           </div>
           <button class="botao sombra bebas-neue-regular" onclick="cadastrar()">Cadastrar</button>
         </div>
@@ -214,7 +222,6 @@
     var senhaVar = senha_input.value;
     var letrasMaiusculas = /[A-Z]/;
     var letrasMinusculas = /[a-z]/;
-    var numeros = /[0-9]/;
     var caracteresEspeciais = /[!|@|#|$|%|^|&|*|(|)|-|_]/;
     var auxMaiuscula = 0;
     var auxMinuscula = 0;
@@ -257,6 +264,17 @@
       erro_input_confirmacao.innerHTML = "As senhas não se coicidem!"
     }else {
       erro_input_confirmacao.innerHTML = "";
+    }
+  }
+
+  function mostrarSenha() {
+
+    if(senha_input.type === 'password' && confirmacao_senha_input.type === 'password') {
+      senha_input.setAttribute('type', 'text');
+      confirmacao_senha_input.setAttribute('type', 'text');
+    }else{
+      senha_input.setAttribute('type', 'password');
+      confirmacao_senha_input.setAttribute('type', 'password');
     }
   }
 </script>
