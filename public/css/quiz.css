@@ -117,7 +117,7 @@ body {
 
 #div_msg {
     width: 50vw;
-    height: 50vh;
+    height: fit-content;
     margin: 10% auto;
     display: flex;
     flex-direction: column;
@@ -166,7 +166,7 @@ body {
     box-shadow: 0 0 25px #FFB904;
     cursor: pointer;
     transition: .3s;
-    margin-top: 15%;
+    margin-top: 7%; 
 }
 
 .btn-clique-aqui:hover {
