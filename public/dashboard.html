@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <link rel="stylesheet" href="./css/dashboard.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
@@ -14,6 +15,47 @@
     <link rel="icon" href="./assets/logologo.svg">
 </head>
 <body>
-    
+    <!-- NAVBAR  -->
+    <div class="nav-bar flex">
+        <div class="box-logo nav-link">
+            <a href="index.html">
+                <img src="assets/logologo.svg">
+                <p class="inter-titulo">PSICHOBODY</p>
+            </a>
+        </div>
+
+        <div class="nav-link">
+            <p class="inter-titulo">HOME</p>
+        </div>
+
+        <div class="nav-link">
+            <a href="orientacoes.html"><p class="inter-titulo">ORIENTAÇÕES</p></a>
+        </div>
+
+        <div class="nav-link">
+           <a href="dashboard.html"><p class="inter-titulo amarelo">DASHBOARD</p></a>
+        </div>
+
+        <div class="nav-link">
+           <a href="sobreMim.html"><p class="inter-titulo">SOBRE MIM </p></a>
+        </div>
+
+        <div class="box-btn-login flex">
+            <a href="login.html"><button class="btn-login inter-titulo">LOGIN</button></a>
+        </div>
+    </div>
+
+    <!-- CONTEUDO -->
+
+    <h1 class="dashboard bebas-neue-regular">DASHBOARD!</h1>
+
+    <div class="box-respostasDoUsuario sombra flex">
+        <h4 class="bebas-neue-regular">SUAS RESPOSTAS</h4>
+        
+        <p class="inter-500 flex" id="p_respostasDosUsuario">
+        </p>
+    </div>
 </body>
 </html>
+
+<script type="module" src="./js/dashboard.js"></script>

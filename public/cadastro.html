@@ -214,7 +214,11 @@
     var emailVar = email_input.value;
 
     if (emailVar == "") {
-      erro_input_email.innerHTML = "Seu e-mail está vazio!";
+      erro_input_email.innerHTML = `<br>Seu e-mail está vazio!`;
+    }else if(emailVar.indexOf('@') < 0){
+      erro_input_email.innerHTML = `<br>Seu e-mail precisa ter @!`;
+    }else if(emailVar.indexOf('.com') < 0){
+      erro_input_email.innerHTML = `<br>Seu e-mail precisa ter .com!`;
     }
   }
 
