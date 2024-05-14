@@ -133,7 +133,8 @@ body {
 }
 
 .box-respostasDoUsuario {
-    width: 20vw;
+    min-width: fit-content;
+    width: 22vw;
     height: fit-content;
     border: solid 8px #FFF;
     margin-left: 2%;
@@ -150,4 +151,17 @@ body {
 
 #respostasDosUsuario {
     color: #FFF;
+    flex-direction: column;
+    transition: .7s;
+}
+
+#p_respostasDosUsuario {
+    color: #FFF;
+}
+
+.box-graficos {
+    width: 70vw;
+    height: 60vh;
+    border: solid 8px #FFF;
+    margin-left: 5%;
 }

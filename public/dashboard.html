@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="icon" href="./assets/logologo.svg">
 </head>
+
 <body>
     <!-- NAVBAR  -->
     <div class="nav-bar flex">
@@ -29,15 +31,21 @@
         </div>
 
         <div class="nav-link">
-            <a href="orientacoes.html"><p class="inter-titulo">ORIENTAÇÕES</p></a>
+            <a href="orientacoes.html">
+                <p class="inter-titulo">ORIENTAÇÕES</p>
+            </a>
         </div>
 
         <div class="nav-link">
-           <a href="dashboard.html"><p class="inter-titulo amarelo">DASHBOARD</p></a>
+            <a href="dashboard.html">
+                <p class="inter-titulo amarelo">DASHBOARD</p>
+            </a>
         </div>
 
         <div class="nav-link">
-           <a href="sobreMim.html"><p class="inter-titulo">SOBRE MIM </p></a>
+            <a href="sobreMim.html">
+                <p class="inter-titulo">SOBRE MIM </p>
+            </a>
         </div>
 
         <div class="box-btn-login flex">
@@ -49,13 +57,26 @@
 
     <h1 class="dashboard bebas-neue-regular">DASHBOARD!</h1>
 
-    <div class="box-respostasDoUsuario sombra flex">
-        <h4 class="bebas-neue-regular">SUAS RESPOSTAS</h4>
-        
-        <p class="inter-500 flex" id="p_respostasDosUsuario">
-        </p>
+    <div class="box-container-maior flex">
+        <div class="box-respostasDoUsuario sombra flex">
+            <h4 class="bebas-neue-regular">SUAS RESPOSTAS</h4>
+
+            <p class="inter-500 flex" id="p_respostasDosUsuario">
+            </p>
+        </div>
+
+        <div class="box-graficos sombra">
+
+            <div class="box-grafico"></div>
+            <div class="box-grafico"></div>
+            <div class="box-grafico"></div>
+            <div class="box-grafico"></div>
+            <div class="box-grafico"></div>
+        </div>
+
     </div>
 </body>
+
 </html>
 
-<script type="module" src="./js/dashboard.js"></script>
+<script src="./js/dashboard.js"></script>

@@ -38,8 +38,8 @@ function pergunta2() {
             
         <select id="sl_praticaMusculacao" class="sombra">
         <option value="#">Selecione uma opção</option>
-        <option value="Sim">Sim</option>
-        <option value="Nao">Não</option>
+        <option>Sim</option>
+        <option>Não</option>
         </select>
         
         <button class="enviar sombra inter-titulo" onclick="pergunta3()">Enviar</button>
@@ -71,7 +71,10 @@ function pergunta3() {
         <button class="enviar sombra inter-titulo" onclick="pergunta4()">Enviar</button>
         </div>`;
         
-    }else mandarParaDash();
+    }else {
+        respostasUsuarios.push(praticaMusculacao);
+        mandarParaDash();
+    }
     
     
 }
@@ -157,7 +160,7 @@ function pergunta5() {
         
         if(input_autoEstimaAntes.value == "") {
             div_msg.innerHTML += `<br> <span class="inter-p">É necessário inserir algum valor para prosseguir!</span>`;
-        }else { 
+        }else if(input_autoEstimaAntes.value >= 0 && input_autoEstimaAntes.value <= 10){ 
             autoEstimaAntes = input_autoEstimaAntes.value;
             
             respostasUsuarios.push(autoEstimaAntes);
@@ -172,24 +175,28 @@ function pergunta5() {
             <input id="input_autoEstimaDepois" class="input-questionario sombra" type="number" placeholder="Insira aqui sua nota">
             
                 <button class="enviar sombra inter-titulo" onclick="mostrarDashboard()">Enviar</button>`;
+            }else {
+                div_msg.innerHTML += `<br> <span class="inter-p">Este valor não é válido!</span>`;
             }
         }
         var autoEstimaDepois;
         function mostrarDashboard() {
             if(input_autoEstimaDepois.value == "") {
                 div_msg.innerHTML += `<br> <span class="inter-p">É necessário inserir algum valor para prosseguir!</span>`;
-            }else {
+            }else if(input_autoEstimaDepois.value >= 0 && input_autoEstimaDepois.value <= 10){
                 autoEstimaDepois = input_autoEstimaDepois.value;
                 
                 respostasUsuarios.push(autoEstimaDepois);
                 
                 mandarParaDash()
                 
+            }else {
+                div_msg.innerHTML += `<br> <span class="inter-p">Este valor não é válido!</span>`;
             }
         }
 
-        // export default respostasUsuarios;
         
         function mandarParaDash() {
             window.location.href = 'dashboard.html';
+            window.sessionStorage.setItem('respostasUsuarios', respostasUsuarios);
         }
