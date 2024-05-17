@@ -64,6 +64,7 @@ body {
 .nav-bar a {
   text-decoration: none;
   color: #FFF;
+  cursor: pointer;
 }
 
 .nav-link {
@@ -73,7 +74,6 @@ body {
   align-items: center;
   justify-content: center;
   color: #FFF;
-  cursor: pointer;
 }
 
 .box-logo {

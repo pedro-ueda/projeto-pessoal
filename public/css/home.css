@@ -57,6 +57,7 @@ body {
 .nav-bar a {
     text-decoration: none;
     color: #FFF;
+    cursor: pointer;
 }
 
 .nav-link {
@@ -66,7 +67,6 @@ body {
     align-items: center;
     justify-content: center;
     color: #FFF;
-    cursor: pointer;
 }
 
 .box-logo {
@@ -140,7 +140,7 @@ body {
     width: auto;
     height: fit-content;
     position: relative;
-    margin: 7% 0;
+    margin-top: 7%;
 }
 
 .box-beneficios-psicologicos h1 {
@@ -158,7 +158,7 @@ body {
     width: 50vw;
     height: 50vh;
     color: #FFF;
-    margin-bottom: 35%;
+    margin-top: 2%;
 }
 
 .box-conteudo h1 {
@@ -176,6 +176,7 @@ body {
     z-index: 1;
     border-radius: 50%;
     overflow: hidden;
+    margin-top: 2%;
 }
 
 .box-maior-conteudo .box-img img {
@@ -207,6 +208,7 @@ body {
 .box-maior-conteudo2 {
     gap: 16%;
     margin-left: 20vh;
+    margin-top: -5%;
 }
 
 .box-maior-conteudo2 .box-img2 {
@@ -225,8 +227,6 @@ body {
 .box-conteudo-secao2 {
     width: 40%;
     height: 50%;
-    position: relative;
-    top: 20%;
     color: #FFF;
 }
 
@@ -263,8 +263,7 @@ body {
 
 .box-maior-conteudo3 {
     gap: 10%;
-    position: relative;
-    top: 80%;
+    margin-top: 33%;
 }
 
 .box-maior-conteudo3 .box-img3 {
@@ -285,9 +284,7 @@ body {
 .box-conteudo-secao3 {
     width: 40%;
     height: 50%;
-    position: relative;
-    margin: 0 0 0 20vh;
-    top: 20%;
+    margin-left: 20vh;
     color: #FFF;
 }
 
@@ -302,7 +299,7 @@ body {
 }
 
 .secao3 .circulo-secao1-2 {
-    top: 130%;
+    top: 90%;
 }
 
 /* SEÇÃO 4 */
@@ -310,10 +307,9 @@ body {
 
 .box-maior-conteudo4 {
     gap: 10%;
-    position: relative;
     top: 80%;
     margin-left: 20vh;
-    margin-top: 80%;
+    margin-top: 20%;
     margin-bottom: 15vh;
 }
 
@@ -337,6 +333,7 @@ body {
     z-index: 1;
     border-radius: 50%;
     overflow: hidden;
+    margin-top: -5%;
 }
 
 .box-maior-conteudo4 .box-img4 img {

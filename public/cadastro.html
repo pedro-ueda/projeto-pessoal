@@ -219,6 +219,8 @@
       erro_input_email.innerHTML = `<br>Seu e-mail precisa ter @!`;
     }else if(emailVar.indexOf('.com') < 0){
       erro_input_email.innerHTML = `<br>Seu e-mail precisa ter .com!`;
+    }else {
+      erro_input_email.innerHTML = "";
     }
   }
 
