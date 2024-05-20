@@ -86,11 +86,19 @@
                         <span class="inter-titulo">Senha:</span>
                         <input class="sombra" id="senha_input" type="password" placeholder="******">
                     </div>
+
+                    <div class="flex box-seguranca-senha">
+
+                        <p class="inter-500 segurança-senha">Mostrar senha</p>
+                        <input onclick="mostrarSenha()" type="checkbox" id="ch_mostrarSenha">
+                    </div>
+
                     <button class="botao bebas-neue-regular sombra" onclick="entrar()">ENTRAR</button>
                 </div>
 
                 <div>
-                    <span style="font-size: 14px;" class="inter-titulo">Ainda não tem uma conta? <a href="cadastro.html">Crie a sua!</a></span>
+                    <span style="font-size: 14px;" class="inter-titulo">Ainda não tem uma conta? <a
+                            href="cadastro.html">Crie a sua!</a></span>
                 </div>
 
                 <div id="div_aguardar" class="loading-div">
@@ -171,10 +179,20 @@
         })
 
         return false;
+
+        sessionStorage.setItem('email', json.email)
     }
 
     function sumirMensagem() {
         cardErro.style.display = "none"
     }
 
+    function mostrarSenha() {
+
+        if (senha_input.type === 'password') {
+            senha_input.setAttribute('type', 'text');
+        } else {
+            senha_input.setAttribute('type', 'password');
+        }
+    }
 </script>

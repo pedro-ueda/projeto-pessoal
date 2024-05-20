@@ -1,7 +1,9 @@
-var email = sessionStorage.getItem('EMAIL_USUARIO');
+var email = window.sessionStorage.getItem('EMAIL_USUARIO');
+
 console.log(email);
-if (email == "null") {
-    div_msg.innerHTML = "Você deve ter um login para ter acesso ao questionário!";
+
+if (email == null) {
+    div_msg.innerHTML = `<p class="inter-p">Você deve ter um login para ter acesso ao questionário!</p>`;
 } else {
     var respostasUsuarios = [];
     var sentePerdido;
@@ -171,7 +173,7 @@ if (email == "null") {
             <h1 class="inter-titulo titulo-quiz">7. Pergunta</h1>
             </div>
             
-            <p class="inter-p">Qual nota você daria para uma saúde mental (autoestima, disposição, etc) boa? (de 0 a 10)</p>
+            <p class="inter-p">Qual nota você daria para uma saúde mental boa?(autoestima, disposição, etc)  (de 0 a 10)</p>
             
             <input id="input_autoEstimaDepois" class="input-questionario sombra" type="number" placeholder="Insira aqui sua nota">
             
