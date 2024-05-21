@@ -17,7 +17,7 @@
 .inter-500 {
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 500;
+    font-weight: 700;
     font-style: normal;
     font-variation-settings:
         "slnt" 0;
@@ -135,9 +135,10 @@ body {
 .box-respostasDoUsuario {
     min-width: fit-content;
     width: 22vw;
-    height: fit-content;
+    height: 50vh;
     border: solid 8px #FFF;
-    margin-left: 2%;
+    margin-left: 2.5%;
+    margin-top: 6vh;
     flex-direction: column;
     padding: 1%;
 }
@@ -159,9 +160,58 @@ body {
     color: #FFF;
 }
 
-.box-graficos {
-    width: 70vw;
-    height: 60vh;
+.box-maior-graficos {
+    width: 95%;
+    height: 70vh;
     border: solid 8px #FFF;
-    margin-left: 5%;
+    margin: 0 auto;
+    flex-direction: column;
+}
+
+.box-divisoria-graficos {
+    width: 100%;
+    height: 50%;
+}
+
+.box-grafico {
+    width: 36%;
+    height: 100%;
+    border: solid 3px #FFF;
+}
+
+.box-grafico-auto-estima {
+    width: 70%;
+    height: 50vh;
+    border: solid 8px #FFF;
+    margin-top: 6vh;
+    margin-left: 2.5%;
+    margin-bottom: 5vh;
+}
+
+.box-grafico-auto-estima H1 {
+    color: #FFF;
+    text-align: center;
+    font-size: 40px;
+    margin-top: 1vh;
+}
+
+.box-texto-motivacional {
+    width: 80%;
+    height: 40vh;
+    margin: auto;
+    padding: 1%;
+}
+
+.box-texto-motivacional h3 {
+    color: #FFF;
+    text-align: center;
+    font-size: 40px;
+    margin-top: 1vh;
+}
+
+.texto-motivacional {
+    margin-top: 1vh;
+    color: #FFF;
+    text-align: justify;
+    margin-bottom: 5vh;
 }
