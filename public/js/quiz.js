@@ -1,7 +1,5 @@
 var email = window.sessionStorage.getItem('EMAIL_USUARIO');
 
-console.log(email);
-
 if (email == null) {
     div_msg.innerHTML = `<p class="inter-p">Você deve ter um login para ter acesso ao questionário!</p>`;
 } else {
@@ -36,6 +34,8 @@ if (email == null) {
         if (sl_genero.value == "#") {
             div_msg.innerHTML += `<br> <span class="inter-p">Esta não é uma opção válida!</span>`;
         } else {
+            pergunta1 = sl_genero.value;
+
             respostasUsuarios.push(sl_genero.value);
 
             div_msg.innerHTML = `<div class="box-titulo flex">
@@ -57,6 +57,8 @@ if (email == null) {
 
     function pergunta3() {
         sentePerdido = sl_sentePerdido.value;
+
+        pergunta2 = sentePerdido;
 
         if (sentePerdido == "#") {
             div_msg.innerHTML += `<br> <span class="inter-p">Esta não é uma opção válida!</span>`;
@@ -89,6 +91,8 @@ if (email == null) {
             div_msg.innerHTML += `<br> <span class="inter-p">Esta não é uma opção válida!</span>`;
         } else {
             respostasUsuarios.push(sl_concentrado.value);
+
+            pergunta3 = sl_concentrado.value;
 
             div_msg.innerHTML = `
         <div class="box-titulo flex">
@@ -182,6 +186,7 @@ if (email == null) {
             div_msg.innerHTML += `<br> <span class="inter-p">Este valor não é válido!</span>`;
         }
     }
+
     var autoEstimaDepois;
     function mostrarDashboard() {
         if (input_autoEstimaDepois.value == "") {
@@ -190,6 +195,14 @@ if (email == null) {
             autoEstimaDepois = input_autoEstimaDepois.value;
 
             respostasUsuarios.push(autoEstimaDepois);
+
+            var pergunta1 = respostasUsuarios[0];
+            var pergunta2 = respostasUsuarios[1];
+            var pergunta3 = respostasUsuarios[2];
+            var pergunta4 = respostasUsuarios[3];
+            var pergunta5 = respostasUsuarios[4];
+            var pergunta6 = respostasUsuarios[5];
+            var pergunta7 = respostasUsuarios[6];
 
             mandarParaDash()
 
@@ -200,7 +213,48 @@ if (email == null) {
 
 
     function mandarParaDash() {
-        window.location.href = 'dashboard.html';
+        fetch("/dados/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js]
+                pergunta1Server: pergunta1Var,
+                pergunta2Server: pergunta2Var,
+                pergunta3Server: pergunta3Var,
+                pergunta4Server: pergunta4Var,
+                pergunta5Server: pergunta5Var,
+                pergunta6Server: pergunta6Var,
+                pergunta7Server: pergunta7Var
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    cardErro.style.display = "block";
+
+                    mensagem_erro.innerHTML =
+                        "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                    setTimeout(() => {
+                        window.location = "login.html";
+                    }, "2000");
+
+                    limparFormulario();
+                    finalizarAguardar();
+                } else {
+                    throw "Houve um erro ao tentar realizar o cadastro!";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                finalizarAguardar();
+            });
+
         window.sessionStorage.setItem('respostasUsuarios', respostasUsuarios);
+        window.location.href = 'dashboard.html';
     }
 }
