@@ -8,11 +8,13 @@ function listar() {
     return database.executar(instrucao);
 }
 
-function cadastrar(pergunta1, pergunta2, pergunta3, pergunta4, pergunta5, pergunta6, pergunta7) {
+function cadastrar(idUsuario, pergunta1, pergunta2, pergunta3, pergunta4, pergunta5, pergunta6, pergunta7) {
     var instrucao = `
-        INSERT INTO dados (pergunta1, pergunta2, pergunta3, pergunta4, pergunta5, pergunta6, pergunta7) VALUES ('${pergunta1}, ${pergunta2}, ${pergunta3}, ${pergunta2}, ${pergunta4}, ${pergunta5}, ${pergunta6}, ${pergunta7}');
-    `;
-    console.log("Executando a instrução SQL: \n" + instrucao);
+    INSERT INTO dados (fkUsuario, pergunta1, pergunta2, pergunta3, pergunta4, pergunta5, pergunta6, pergunta7) 
+    VALUES ('${idUsuario}', '${pergunta1}', '${pergunta2}', '${pergunta3}', '${pergunta4}', '${pergunta5}', '${pergunta6}', '${pergunta7}');
+`;
+    console.log("Executando a instrução SQL: \n" + instrucao + 'Acabou a instrução!');
+
     return database.executar(instrucao);
 }
 

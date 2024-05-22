@@ -1,4 +1,13 @@
 var email = window.sessionStorage.getItem('EMAIL_USUARIO');
+var pergunta1;
+var pergunta2;
+var pergunta3;
+var pergunta4;
+var pergunta5;
+var pergunta6;
+var pergunta7;
+var idUsuario;
+
 
 if (email == null) {
     div_msg.innerHTML = `<p class="inter-p">Você deve ter um login para ter acesso ao questionário!</p>`;
@@ -196,13 +205,14 @@ if (email == null) {
 
             respostasUsuarios.push(autoEstimaDepois);
 
-            var pergunta1 = respostasUsuarios[0];
-            var pergunta2 = respostasUsuarios[1];
-            var pergunta3 = respostasUsuarios[2];
-            var pergunta4 = respostasUsuarios[3];
-            var pergunta5 = respostasUsuarios[4];
-            var pergunta6 = respostasUsuarios[5];
-            var pergunta7 = respostasUsuarios[6];
+             pergunta1 = respostasUsuarios[0];
+             pergunta2 = respostasUsuarios[1];
+             pergunta3 = respostasUsuarios[2];
+             pergunta4 = respostasUsuarios[3];
+             pergunta5 = respostasUsuarios[4];
+             pergunta6 = respostasUsuarios[5];
+             pergunta7 = respostasUsuarios[6];
+             idUsuario = sessionStorage.getItem('ID_USUARIO');
 
             mandarParaDash()
 
@@ -221,13 +231,14 @@ if (email == null) {
             body: JSON.stringify({
                 // crie um atributo que recebe o valor recuperado aqui
                 // Agora vá para o arquivo routes/usuario.js]
-                pergunta1Server: pergunta1Var,
-                pergunta2Server: pergunta2Var,
-                pergunta3Server: pergunta3Var,
-                pergunta4Server: pergunta4Var,
-                pergunta5Server: pergunta5Var,
-                pergunta6Server: pergunta6Var,
-                pergunta7Server: pergunta7Var
+                pergunta1Server: pergunta1,
+                pergunta2Server: pergunta2,
+                pergunta3Server: pergunta3,
+                pergunta4Server: pergunta4,
+                pergunta5Server: pergunta5,
+                pergunta6Server: pergunta6,
+                pergunta7Server: pergunta7,
+                idUsuarioServer: idUsuario
             }),
         })
             .then(function (resposta) {
