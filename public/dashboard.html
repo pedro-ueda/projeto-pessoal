@@ -88,7 +88,9 @@
 
         <div class="box-grafico-auto-estima">
 
-            <h1 class="bebas-neue-regular">AUTO ESTIMA IDEAL</h1>
+            <h1 class="bebas-neue-regular">AUTO ESTIMA</h1>
+
+            <canvas id="grafico-auto-estima"></canvas>
         </div>
     </div>
 
@@ -96,17 +98,8 @@
         <h3 class="bebas-neue-regular">VOCÊ <span style="color: #DFA100;">PODE</span> ALCANÇAR ISSO!</h3>
 
         <p class="texto-motivacional inter-500">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque laudantium minima at cupiditate, enim
-            voluptates nemo odit modi minus reprehenderit quia omnis maxime doloribus quam incidunt adipisci assumenda.
-            Eveniet, maxime?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque laudantium minima at
-            cupiditate, enim voluptates nemo odit modi minus reprehenderit quia omnis maxime doloribus quam incidunt
-            adipisci assumenda. Eveniet, maxime?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque
-            laudantium minima at cupiditate, enim voluptates nemo odit modi minus reprehenderit quia omnis maxime
-            doloribus quam incidunt adipisci assumenda. Eveniet, maxime?Lorem ipsum dolor sit amet, consectetur
-            adipisicing elit. Cumque laudantium minima at cupiditate, enim voluptates nemo odit modi minus reprehenderit
-            quia omnis maxime doloribus quam incidunt adipisci assumenda. Eveniet, maxime?
+            Se permita conhecer novas práticas, conheça melhor você e seu corpo! Saia da rotina, descubra novas aptidões em você e viva experiências novas. Alcance o corpo dos seus sonhos e tenha o conforto psicológico que você merece! Não espere pelo amanhã, pois você vive o hoje. A academia pode se tornar a sua maior aliada, basta você permitir! Começar a fazer academia é um passo incrível em direção a uma vida mais saudável e vibrante. Não se trata apenas de moldar seu corpo, mas também de fortalecer sua mente e espírito. Na academia, você encontrará não apenas máquinas e pesos, mas uma comunidade de apoio pronta para incentivá-lo em sua jornada de transformação. Cada gota de suor derramada é um investimento em si mesmo, uma declaração de compromisso com uma vida plena e ativa. Então, erga-se, vista suas roupas de treino e embarque nessa jornada rumo a uma versão melhor de si mesmo. Você é capaz de alcançar grandes feitos, e a academia será o palco onde você brilhará! 
         </p>
-
         <h3 style="font-size: 50px;" class="bebas-neue-regular">COMECE AGORA A TREINAR E VEJA A <span
                 style="color: #DFA100;">DIFERENÇA</span> NA SUA VIDA!</h3>
     </div>
@@ -178,4 +171,24 @@
     };
 
     new Chart(defasagem, configDefasagem);
+
+    const autoEstima = document.getElementById('grafico-auto-estima');
+
+    const dataAutoEstima = {
+        labels: ['Média de auto estima ideal', 'Média de auto estima ideal'], // AQUI SERIA COLOCADO A QUANTIDADE DE USUÁRIOS
+        datasets: [{
+            label: 'Média da nota de auto estima ideal',
+            data: [65, 59, 80, 81, 56, 55, 40],
+            fill: false,
+            borderColor: 'rgb(75, 192, 192)',
+            tension: 0.1
+        }]
+    };
+
+    const configAutoEstima = {
+        type: 'line',
+        data: dataAutoEstima,
+    };
+
+    new Chart(autoEstima, configAutoEstima);
 </script>

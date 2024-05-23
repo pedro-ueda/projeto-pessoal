@@ -1,11 +1,4 @@
 var email = window.sessionStorage.getItem('EMAIL_USUARIO');
-var pergunta1;
-var pergunta2;
-var pergunta3;
-var pergunta4;
-var pergunta5;
-var pergunta6;
-var pergunta7;
 var idUsuario;
 
 
@@ -205,13 +198,6 @@ if (email == null) {
 
             respostasUsuarios.push(autoEstimaDepois);
 
-             pergunta1 = respostasUsuarios[0];
-             pergunta2 = respostasUsuarios[1];
-             pergunta3 = respostasUsuarios[2];
-             pergunta4 = respostasUsuarios[3];
-             pergunta5 = respostasUsuarios[4];
-             pergunta6 = respostasUsuarios[5];
-             pergunta7 = respostasUsuarios[6];
              idUsuario = sessionStorage.getItem('ID_USUARIO');
 
             mandarParaDash()
@@ -231,13 +217,13 @@ if (email == null) {
             body: JSON.stringify({
                 // crie um atributo que recebe o valor recuperado aqui
                 // Agora vá para o arquivo routes/usuario.js]
-                pergunta1Server: pergunta1,
-                pergunta2Server: pergunta2,
-                pergunta3Server: pergunta3,
-                pergunta4Server: pergunta4,
-                pergunta5Server: pergunta5,
-                pergunta6Server: pergunta6,
-                pergunta7Server: pergunta7,
+                pergunta1Server: respostasUsuarios[0],
+                pergunta2Server: respostasUsuarios[1],
+                pergunta3Server: respostasUsuarios[2],
+                pergunta4Server: respostasUsuarios[3],
+                pergunta5Server: respostasUsuarios[4],
+                pergunta6Server: respostasUsuarios[5],
+                pergunta7Server: respostasUsuarios[6],
                 idUsuarioServer: idUsuario
             }),
         })
@@ -268,4 +254,88 @@ if (email == null) {
         window.sessionStorage.setItem('respostasUsuarios', respostasUsuarios);
         window.location.href = 'dashboard.html';
     }
+}
+
+function obterDadosGrafico(idAquario) {
+
+    fetch(`/medidas/ultimas/${idAquario}`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (resposta) {
+                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                resposta.reverse();
+
+                plotarGrafico(resposta, idAquario);
+
+            });
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+    })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+}
+
+// Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
+// Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
+// A função *plotarGrafico* também invoca a função *atualizarGrafico*
+function plotarGrafico(resposta, idAquario) {
+
+    console.log('iniciando plotagem do gráfico...');
+
+    // Criando estrutura para plotar gráfico - labels
+    let labels = [];
+
+    // Criando estrutura para plotar gráfico - dados
+    let dados = {
+        labels: labels,
+        datasets: [{
+            label: 'Umidade',
+            data: [],
+            fill: false,
+            borderColor: 'rgb(75, 192, 192)',
+            tension: 0.1
+        },
+        {
+            label: 'Temperatura',
+            data: [],
+            fill: false,
+            borderColor: 'rgb(199, 52, 52)',
+            tension: 0.1
+        }]
+    };
+
+    console.log('----------------------------------------------')
+    console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+    console.log(resposta)
+
+    // Inserindo valores recebidos em estrutura para plotar o gráfico
+    for (i = 0; i < resposta.length; i++) {
+        var registro = resposta[i];
+        labels.push(registro.momento_grafico);
+        dados.datasets[0].data.push(registro.umidade);
+        dados.datasets[1].data.push(registro.temperatura);
+    }
+
+    console.log('----------------------------------------------')
+    console.log('O gráfico será plotado com os respectivos valores:')
+    console.log('Labels:')
+    console.log(labels)
+    console.log('Dados:')
+    console.log(dados.datasets)
+    console.log('----------------------------------------------')
+
+    // Criando estrutura para plotar gráfico - config
+    const config = {
+        type: 'line',
+        data: dados,
+    };
+
+    // Adicionando gráfico criado em div na tela
+    let myChart = new Chart(
+        document.getElementById(`myChartCanvas${idAquario}`),
+        config
+    );
+
+    setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
 }

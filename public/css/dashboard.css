@@ -146,7 +146,7 @@ body {
 .box-respostasDoUsuario h4 {
     color: #FFF;
     text-align: center;
-    font-size: 25px;
+    font-size: 40px;
     margin-bottom: 8%;
 }
 
@@ -158,6 +158,8 @@ body {
 
 #p_respostasDosUsuario {
     color: #FFF;
+    font-size: 20px;
+    line-height: 4.5vh;
 }
 
 .box-maior-graficos {
@@ -240,4 +242,8 @@ body {
 
 #grafico-defasagem {
     margin-top: 10vh;
+}
+
+#grafico-auto-estima {
+    max-height: 82%;
 }
