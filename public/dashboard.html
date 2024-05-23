@@ -113,6 +113,10 @@
 
 <script>
     const genero = document.getElementById('grafico-genero');
+    var qtdMulheres = sessionStorage.getItem('qtdMulheres');
+    var qtdHomens = sessionStorage.getItem('qtdHomens');
+    var qtdOutros = sessionStorage.getItem('qtdOutros');
+
 
     const dataGenero = {
         labels: [
@@ -121,7 +125,7 @@
             'Outros',
         ],
         datasets: [{
-            data: [300, 50, 100],
+            data: [qtdHomens, qtdMulheres, qtdOutros],
             backgroundColor: [
                 'rgb(0, 132, 255)',
                 'rgb(187, 78, 102)',
