@@ -165,18 +165,15 @@ body {
     height: 70vh;
     border: solid 8px #FFF;
     margin: 0 auto;
-    flex-direction: column;
-}
-
-.box-divisoria-graficos {
-    width: 100%;
-    height: 50%;
 }
 
 .box-grafico {
-    width: 36%;
+    width: 50%;
     height: 100%;
-    border: solid 3px #FFF;
+    border-right: solid 8px #FFF;
+    flex-direction: column;
+    padding: 1%;
+    align-items: center;
 }
 
 .box-grafico-auto-estima {
@@ -214,4 +211,33 @@ body {
     color: #FFF;
     text-align: justify;
     margin-bottom: 5vh;
+}
+
+.box-grafico H3 {
+    color: #FFF;
+    margin-left: -65%;
+    font-size: 30px;
+    width: fit-content;
+}
+
+.sem-borda h3 {
+    color: #FFF;
+    font-size: 30px;
+    width: fit-content;
+    margin-left: 1%;
+}
+
+.sem-borda {
+    border: none;
+}
+
+/* CHART JS */
+
+#grafico-genero {
+    max-height: 80%;
+    margin-top: 4vh;
+}
+
+#grafico-defasagem {
+    margin-top: 10vh;
 }

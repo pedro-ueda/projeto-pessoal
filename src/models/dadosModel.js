@@ -1,13 +1,5 @@
 var database = require("../database/config");
 
-function listar() {
-    var instrucao = `
-    SELECT * FROM dados; 
-    `;
-    console.log("Executando a instrução SQL: \n" + instrucao);
-    return database.executar(instrucao);
-}
-
 function cadastrar(idUsuario, pergunta1, pergunta2, pergunta3, pergunta4, pergunta5, pergunta6, pergunta7) {
     var instrucao = `
     INSERT INTO dados (fkUsuario, pergunta1, pergunta2, pergunta3, pergunta4, pergunta5, pergunta6, pergunta7) 
@@ -19,6 +11,5 @@ function cadastrar(idUsuario, pergunta1, pergunta2, pergunta3, pergunta4, pergun
 }
 
 module.exports = {
-    cadastrar,
-    listar
+    cadastrar
 };

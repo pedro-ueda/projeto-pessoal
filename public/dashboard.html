@@ -61,19 +61,20 @@
 
         <div class="box-maior-graficos sombra flex">
 
-            <div class="box-divisoria-graficos flex">
-                <div class="box-grafico"></div>
-                <div class="box-grafico"></div>
-                <div class="box-grafico"></div>
+            <div class="box-grafico flex">
+
+                <h3 class="bebas-neue-regular">GÊNERO DOS USUÁRIOS</h3>
+
+                <canvas id="grafico-genero"></canvas>
             </div>
 
-            <div class="box-divisoria-graficos flex">
-                <div class="box-grafico"></div>
-                <div class="box-grafico"></div>
-                <div class="box-grafico"></div>
+            <div class="box-grafico sem-borda">
+
+                <h3 class="bebas-neue-regular">DEFASAGEM DOS USUÁRIOS</h3>
+
+                <canvas id="grafico-defasagem"></canvas>
             </div>
         </div>
-
     </div>
 
     <div class="flex">
@@ -95,10 +96,19 @@
         <h3 class="bebas-neue-regular">VOCÊ <span style="color: #DFA100;">PODE</span> ALCANÇAR ISSO!</h3>
 
         <p class="texto-motivacional inter-500">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque laudantium minima at cupiditate, enim voluptates nemo odit modi minus reprehenderit quia omnis maxime doloribus quam incidunt adipisci assumenda. Eveniet, maxime?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque laudantium minima at cupiditate, enim voluptates nemo odit modi minus reprehenderit quia omnis maxime doloribus quam incidunt adipisci assumenda. Eveniet, maxime?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque laudantium minima at cupiditate, enim voluptates nemo odit modi minus reprehenderit quia omnis maxime doloribus quam incidunt adipisci assumenda. Eveniet, maxime?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque laudantium minima at cupiditate, enim voluptates nemo odit modi minus reprehenderit quia omnis maxime doloribus quam incidunt adipisci assumenda. Eveniet, maxime?
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque laudantium minima at cupiditate, enim
+            voluptates nemo odit modi minus reprehenderit quia omnis maxime doloribus quam incidunt adipisci assumenda.
+            Eveniet, maxime?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque laudantium minima at
+            cupiditate, enim voluptates nemo odit modi minus reprehenderit quia omnis maxime doloribus quam incidunt
+            adipisci assumenda. Eveniet, maxime?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque
+            laudantium minima at cupiditate, enim voluptates nemo odit modi minus reprehenderit quia omnis maxime
+            doloribus quam incidunt adipisci assumenda. Eveniet, maxime?Lorem ipsum dolor sit amet, consectetur
+            adipisicing elit. Cumque laudantium minima at cupiditate, enim voluptates nemo odit modi minus reprehenderit
+            quia omnis maxime doloribus quam incidunt adipisci assumenda. Eveniet, maxime?
         </p>
 
-        <h3 style="font-size: 50px;" class="bebas-neue-regular">COMECE AGORA A TREINAR E VEJA A <span style="color: #DFA100;">DIFERENÇA</span> NA SUA VIDA!</h3>
+        <h3 style="font-size: 50px;" class="bebas-neue-regular">COMECE AGORA A TREINAR E VEJA A <span
+                style="color: #DFA100;">DIFERENÇA</span> NA SUA VIDA!</h3>
     </div>
 
 </body>
@@ -106,3 +116,66 @@
 </html>
 
 <script src="./js/dashboard.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    const genero = document.getElementById('grafico-genero');
+
+    const dataGenero = {
+        labels: [
+            'Homem',
+            'Mulher',
+            'Outros',
+        ],
+        datasets: [{
+            data: [300, 50, 100],
+            backgroundColor: [
+                'rgb(0, 132, 255)',
+                'rgb(187, 78, 102)',
+                'rgb(255, 205, 86)'
+            ]
+        }]
+    };
+
+    const configGenero = {
+        type: 'doughnut',
+        data: dataGenero,
+    };
+
+    new Chart(genero, configGenero);
+
+    const defasagem = document.getElementById('grafico-defasagem');
+
+    const dataDefasagem = {
+        labels: [
+            'Foco',
+            'Concentração',
+            'Continuidade',
+            'Indisposição',
+        ],
+        datasets: [{
+            label: 'Nível de defazagem',
+            data: [60, 50, 80, 100],
+            backgroundColor: [
+                'rgb(247, 223, 4, 0.2)',
+                'rgb(160, 38, 38, 0.2)',
+                'rgb(4, 68, 247, 0.2)',
+                'rgb(247, 4, 247, 0.2)',
+            ],
+            borderColor: [
+                'rgb(247, 223, 4)',
+                'rgb(160, 38, 38)',
+                'rgb(4, 68, 247)',
+                'rgb(247, 4, 247)',
+            ],
+            borderWidth: 1
+        }]
+    };
+
+    const configDefasagem = {
+        type: 'bar',
+        data: dataDefasagem,
+    };
+
+    new Chart(defasagem, configDefasagem);
+</script>
