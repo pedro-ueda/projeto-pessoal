@@ -27,8 +27,58 @@ function mostrarOutros(req, res) {
     })
 }
 
+function pegarFoco(req, res) {
+    dashModel.pegarFoco().then(function(resultado){
+        // precisamos informar que o resultado voltará para o front-end como uma resposta em json
+        res.status(200).json(resultado);
+    }).catch(function(erro){
+        res.status(500).json(erro.sqlMessage);
+    })
+}
+
+function pegarConcentracao(req, res) {
+    dashModel.pegarConcentracao().then(function(resultado){
+        // precisamos informar que o resultado voltará para o front-end como uma resposta em json
+        res.status(200).json(resultado);
+    }).catch(function(erro){
+        res.status(500).json(erro.sqlMessage);
+    })
+}
+
+function pegarContinuidade(req, res) {
+    dashModel.pegarContinuidade().then(function(resultado){
+        // precisamos informar que o resultado voltará para o front-end como uma resposta em json
+        res.status(200).json(resultado);
+    }).catch(function(erro){
+        res.status(500).json(erro.sqlMessage);
+    })
+}
+
+function pegarIndisposicao(req, res) {
+    dashModel.pegarIndisposicao().then(function(resultado){
+        // precisamos informar que o resultado voltará para o front-end como uma resposta em json
+        res.status(200).json(resultado);
+    }).catch(function(erro){
+        res.status(500).json(erro.sqlMessage);
+    })
+}
+
+function pegarAutoEstimaIdeal(req, res) {
+    dashModel.pegarAutoEstimaIdeal().then(function(resultado){
+        // precisamos informar que o resultado voltará para o front-end como uma resposta em json
+        res.status(200).json(resultado);
+    }).catch(function(erro){
+        res.status(500).json(erro.sqlMessage);
+    })
+}
+
 module.exports = {
     mostrarHomem,
     mostrarMulher,
-    mostrarOutros
+    mostrarOutros,
+    pegarFoco,
+    pegarConcentracao,
+    pegarContinuidade,
+    pegarIndisposicao,
+    pegarAutoEstimaIdeal
 }

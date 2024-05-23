@@ -18,4 +18,28 @@ router.get("/mostrarOutros", function (req, res) {
     dashController.mostrarOutros(req, res);
 });
 
+router.get("/pegarFoco", function (req, res) {
+    // função a ser chamada quando acessar /carros/listar
+    dashController.pegarFoco(req, res);
+});
+
+router.get("/pegarConcentracao", function (req, res) {
+    // função a ser chamada quando acessar /carros/listar
+    dashController.pegarConcentracao(req, res);
+});
+
+router.get("/pegarContinuidade", function (req, res) {
+    // função a ser chamada quando acessar /carros/listar
+    dashController.pegarContinuidade(req, res);
+});
+
+router.get("/pegarIndisposicao", function (req, res) {
+    // função a ser chamada quando acessar /carros/listar
+    dashController.pegarIndisposicao(req, res);
+});
+
+router.get("/pegarAutoEstimaIdeal", function (req, res) {
+    // função a ser chamada quando acessar /carros/listar
+    dashController.pegarAutoEstimaIdeal(req, res);
+});
 module.exports = router;
