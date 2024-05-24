@@ -141,7 +141,7 @@
     console.log('----------------------------------------------')
     console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
     console.log(qtdMulheres, qtdHomens, qtdOutros)
-    
+
     // Criando estrutura para plotar gráfico - config
     const config = {
         type: 'doughnut',
@@ -170,6 +170,7 @@ function plotarGraficoDefasagem() {
     let dados = {
         labels: labels,
         datasets: [{
+            label: 'Quantidade de usuários por defasagem',
             data: [usuariosDesfocados, usuariosDeconcentrados, usuariosDescontinuos, usuariosIndispostos],
             backgroundColor: [
                 'rgb(247, 223, 4, 0.2)',
