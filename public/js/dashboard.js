@@ -119,7 +119,7 @@ function pegarConcentracao() {
 
                 respostaConcentracao.reverse();
 
-                sessionStorage.setItem('usuariosDeconcentrados', `${respostaConcentracao[0].desfocados}`);
+                sessionStorage.setItem('usuariosDeconcentrados', `${respostaConcentracao[0].desconcentrados}`);
 
                 // plotarGrafico(resposta, idAquario);
 

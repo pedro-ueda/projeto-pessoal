@@ -113,6 +113,7 @@
 
 <script>
     plotarGraficoGenero();
+    plotarGraficoDefasagem();
 
     function plotarGraficoGenero() {
     var qtdMulheres = sessionStorage.getItem('qtdMulheres');
@@ -140,23 +141,7 @@
     console.log('----------------------------------------------')
     console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
     console.log(qtdMulheres, qtdHomens, qtdOutros)
-
-    // Inserindo valores recebidos em estrutura para plotar o gráfico
-    // for (i = 0; i < respostaHomem.length; i++) {
-    //     var registro = respostaHomem[i];
-    //     labels.push(registro.momento_grafico);
-    //     dados.datasets[0].data.push(registro.umidade);
-    //     dados.datasets[1].data.push(registro.temperatura);
-    // }
-
-    // console.log('----------------------------------------------')
-    // console.log('O gráfico será plotado com os respectivos valores:')
-    // console.log('Labels:')
-    // console.log(labels)
-    // console.log('Dados:')
-    // console.log(dados.datasets)
-    // console.log('----------------------------------------------')
-
+    
     // Criando estrutura para plotar gráfico - config
     const config = {
         type: 'doughnut',
@@ -166,6 +151,51 @@
     // Adicionando gráfico criado em div na tela
     let myChart = new Chart(
         document.getElementById(`grafico-genero`),
+        config
+    );
+}
+
+function plotarGraficoDefasagem() {
+    var usuariosDesfocados = sessionStorage.getItem('usuariosDesfocados');
+    var usuariosDeconcentrados = sessionStorage.getItem('usuariosDeconcentrados');
+    var usuariosDescontinuos = sessionStorage.getItem('usuariosDescontinuos');
+    var usuariosIndispostos = sessionStorage.getItem('usuariosIndispostos');
+
+    console.log('iniciando plotagem do gráfico...');
+
+    // Criando estrutura para plotar gráfico - labels
+    let labels = ['Foco', 'Concentração', 'Continuidade', 'Indisposição'];
+
+    // Criando estrutura para plotar gráfico - dados
+    let dados = {
+        labels: labels,
+        datasets: [{
+            data: [usuariosDesfocados, usuariosDeconcentrados, usuariosDescontinuos, usuariosIndispostos],
+            backgroundColor: [
+                'rgb(247, 223, 4, 0.2)',
+                'rgb(160, 38, 38, 0.2)',
+                'rgb(4, 68, 247, 0.2)',
+                'rgb(247, 4, 247, 0.2)',
+            ],
+            borderColor: [
+                'rgb(247, 223, 4)',
+                'rgb(160, 38, 38)',
+                'rgb(4, 68, 247)',
+                'rgb(247, 4, 247)',
+            ],
+            borderWidth: 1
+        }]
+    };
+
+    // Criando estrutura para plotar gráfico - config
+    const config = {
+        type: 'bar',
+        data: dados,
+    };
+
+    // Adicionando gráfico criado em div na tela
+    let myChart = new Chart(
+        document.getElementById(`grafico-defasagem`),
         config
     );
 }
