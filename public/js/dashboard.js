@@ -22,12 +22,12 @@ function mostrarHomem() {
 
     fetch(`/dash/mostrarHomem`, { cache: 'no-store' }).then(function (response) {
         if (response.ok) {
-            response.json().then(function (resposta) {
-                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+            response.json().then(function (respostaHomem) {
+                console.log(`Dados recebidos: ${JSON.stringify(respostaHomem)}`);
 
-                resposta.reverse();
+                respostaHomem.reverse();
 
-                sessionStorage.setItem('qtdHomens', `${resposta[0].homem}`);
+                sessionStorage.setItem('qtdHomens', `${respostaHomem[0].homem}`);
 
                 // plotarGrafico(resposta, idAquario);
 
@@ -45,12 +45,12 @@ function mostrarMulher() {
 
     fetch(`/dash/mostrarMulher`, { cache: 'no-store' }).then(function (response) {
         if (response.ok) {
-            response.json().then(function (resposta) {
-                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+            response.json().then(function (respostaMulheres) {
+                console.log(`Dados recebidos: ${JSON.stringify(respostaMulheres)}`);
 
-                resposta.reverse();
+                respostaMulheres.reverse();
 
-                sessionStorage.setItem('qtdMulheres', `${resposta[0].mulher}`);
+                sessionStorage.setItem('qtdMulheres', `${respostaMulheres[0].mulher}`);
 
                 // plotarGrafico(resposta, idAquario);
 
@@ -68,12 +68,12 @@ function mostrarOutros() {
 
     fetch(`/dash/mostrarOutros`, { cache: 'no-store' }).then(function (response) {
         if (response.ok) {
-            response.json().then(function (resposta) {
-                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+            response.json().then(function (respostaOutros) {
+                console.log(`Dados recebidos: ${JSON.stringify(respostaOutros)}`);
 
-                resposta.reverse();
+                respostaOutros.reverse();
 
-                sessionStorage.setItem('qtdOutros', `${resposta[0].outros}`);
+                sessionStorage.setItem('qtdOutros', `${respostaOutros[0].outros}`);
 
                 // plotarGrafico(resposta, idAquario);
 
@@ -91,12 +91,12 @@ function pegarFoco() {
 
     fetch(`/dash/pegarFoco`, { cache: 'no-store' }).then(function (response) {
         if (response.ok) {
-            response.json().then(function (resposta) {
-                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+            response.json().then(function (respostaFoco) {
+                console.log(`Dados recebidos: ${JSON.stringify(respostaFoco)}`);
 
-                resposta.reverse();
+                respostaFoco.reverse();
 
-                sessionStorage.setItem('usuariosDesfocados', `${resposta[0].desfocados}`);
+                sessionStorage.setItem('usuariosDesfocados', `${respostaFoco[0].desfocados}`);
 
                 // plotarGrafico(resposta, idAquario);
 
@@ -114,12 +114,12 @@ function pegarConcentracao() {
 
     fetch(`/dash/pegarConcentracao`, { cache: 'no-store' }).then(function (response) {
         if (response.ok) {
-            response.json().then(function (resposta) {
-                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+            response.json().then(function (respostaConcentracao) {
+                console.log(`Dados recebidos: ${JSON.stringify(respostaConcentracao)}`);
 
-                resposta.reverse();
+                respostaConcentracao.reverse();
 
-                sessionStorage.setItem('usuariosDeconcentrados', `${resposta[0].desfocados}`);
+                sessionStorage.setItem('usuariosDeconcentrados', `${respostaConcentracao[0].desfocados}`);
 
                 // plotarGrafico(resposta, idAquario);
 
@@ -137,12 +137,12 @@ function pegarContinuidade() {
 
     fetch(`/dash/pegarContinuidade`, { cache: 'no-store' }).then(function (response) {
         if (response.ok) {
-            response.json().then(function (resposta) {
-                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+            response.json().then(function (respostaContinuidade) {
+                console.log(`Dados recebidos: ${JSON.stringify(respostaContinuidade)}`);
 
-                resposta.reverse();
+                respostaContinuidade.reverse();
 
-                sessionStorage.setItem('usuariosDescontinuos', `${resposta[0].descontinuos}`);
+                sessionStorage.setItem('usuariosDescontinuos', `${respostaContinuidade[0].descontinuos}`);
 
                 // plotarGrafico(resposta, idAquario);
 
@@ -160,12 +160,12 @@ function pegarIndisposicao() {
 
     fetch(`/dash/pegarIndisposicao`, { cache: 'no-store' }).then(function (response) {
         if (response.ok) {
-            response.json().then(function (resposta) {
-                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+            response.json().then(function (respostaIndisposicao) {
+                console.log(`Dados recebidos: ${JSON.stringify(respostaIndisposicao)}`);
 
-                resposta.reverse();
+                respostaIndisposicao.reverse();
 
-                sessionStorage.setItem('usuariosIndispostos', `${resposta[0].indispostos}`);
+                sessionStorage.setItem('usuariosIndispostos', `${respostaIndisposicao[0].indispostos}`);
 
                 // plotarGrafico(resposta, idAquario);
 
@@ -183,12 +183,12 @@ function pegarAutoEstimaIdeal() {
 
     fetch(`/dash/pegarAutoEstimaIdeal`, { cache: 'no-store' }).then(function (response) {
         if (response.ok) {
-            response.json().then(function (resposta) {
-                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+            response.json().then(function (respostaAutoEstimaIdeal) {
+                console.log(`Dados recebidos: ${JSON.stringify(respostaAutoEstimaIdeal)}`);
 
-                resposta.reverse();
+                respostaAutoEstimaIdeal.reverse();
 
-                sessionStorage.setItem('autoEstimaIdeal', `${resposta[0].autoEstimaIdeal}`);
+                sessionStorage.setItem('autoEstimaIdeal', `${respostaAutoEstimaIdeal[0].autoEstimaIdeal}`);
 
                 // plotarGrafico(resposta, idAquario);
 
@@ -201,3 +201,4 @@ function pegarAutoEstimaIdeal() {
             console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
         });
 }
+

@@ -112,18 +112,21 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
-    const genero = document.getElementById('grafico-genero');
+    plotarGraficoGenero();
+
+    function plotarGraficoGenero() {
     var qtdMulheres = sessionStorage.getItem('qtdMulheres');
     var qtdHomens = sessionStorage.getItem('qtdHomens');
     var qtdOutros = sessionStorage.getItem('qtdOutros');
 
+    console.log('iniciando plotagem do gráfico...');
 
-    const dataGenero = {
-        labels: [
-            'Homem',
-            'Mulher',
-            'Outros',
-        ],
+    // Criando estrutura para plotar gráfico - labels
+    let labels = ['Homens', 'Mulher', 'Outros'];
+
+    // Criando estrutura para plotar gráfico - dados
+    let dados = {
+        labels: labels,
         datasets: [{
             data: [qtdHomens, qtdMulheres, qtdOutros],
             backgroundColor: [
@@ -134,65 +137,91 @@
         }]
     };
 
-    const configGenero = {
+    console.log('----------------------------------------------')
+    console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+    console.log(qtdMulheres, qtdHomens, qtdOutros)
+
+    // Inserindo valores recebidos em estrutura para plotar o gráfico
+    // for (i = 0; i < respostaHomem.length; i++) {
+    //     var registro = respostaHomem[i];
+    //     labels.push(registro.momento_grafico);
+    //     dados.datasets[0].data.push(registro.umidade);
+    //     dados.datasets[1].data.push(registro.temperatura);
+    // }
+
+    // console.log('----------------------------------------------')
+    // console.log('O gráfico será plotado com os respectivos valores:')
+    // console.log('Labels:')
+    // console.log(labels)
+    // console.log('Dados:')
+    // console.log(dados.datasets)
+    // console.log('----------------------------------------------')
+
+    // Criando estrutura para plotar gráfico - config
+    const config = {
         type: 'doughnut',
-        data: dataGenero,
+        data: dados,
     };
 
-    new Chart(genero, configGenero);
+    // Adicionando gráfico criado em div na tela
+    let myChart = new Chart(
+        document.getElementById(`grafico-genero`),
+        config
+    );
+}
 
-    const defasagem = document.getElementById('grafico-defasagem');
+    // const defasagem = document.getElementById('grafico-defasagem');
 
-    const dataDefasagem = {
-        labels: [
-            'Foco',
-            'Concentração',
-            'Continuidade',
-            'Indisposição',
-        ],
-        datasets: [{
-            label: 'Nível de defazagem',
-            data: [60, 50, 80, 100],
-            backgroundColor: [
-                'rgb(247, 223, 4, 0.2)',
-                'rgb(160, 38, 38, 0.2)',
-                'rgb(4, 68, 247, 0.2)',
-                'rgb(247, 4, 247, 0.2)',
-            ],
-            borderColor: [
-                'rgb(247, 223, 4)',
-                'rgb(160, 38, 38)',
-                'rgb(4, 68, 247)',
-                'rgb(247, 4, 247)',
-            ],
-            borderWidth: 1
-        }]
-    };
+    // const dataDefasagem = {
+    //     labels: [
+    //         'Foco',
+    //         'Concentração',
+    //         'Continuidade',
+    //         'Indisposição',
+    //     ],
+    //     datasets: [{
+    //         label: 'Nível de defazagem',
+    //         data: [60, 50, 80, 100],
+    //         backgroundColor: [
+    //             'rgb(247, 223, 4, 0.2)',
+    //             'rgb(160, 38, 38, 0.2)',
+    //             'rgb(4, 68, 247, 0.2)',
+    //             'rgb(247, 4, 247, 0.2)',
+    //         ],
+    //         borderColor: [
+    //             'rgb(247, 223, 4)',
+    //             'rgb(160, 38, 38)',
+    //             'rgb(4, 68, 247)',
+    //             'rgb(247, 4, 247)',
+    //         ],
+    //         borderWidth: 1
+    //     }]
+    // };
 
-    const configDefasagem = {
-        type: 'bar',
-        data: dataDefasagem,
-    };
+    // const configDefasagem = {
+    //     type: 'bar',
+    //     data: dataDefasagem,
+    // };
 
-    new Chart(defasagem, configDefasagem);
+    // new Chart(defasagem, configDefasagem);
 
-    const autoEstima = document.getElementById('grafico-auto-estima');
+    // const autoEstima = document.getElementById('grafico-auto-estima');
 
-    const dataAutoEstima = {
-        labels: ['Média de auto estima ideal', 'Média de auto estima ideal'], // AQUI SERIA COLOCADO A QUANTIDADE DE USUÁRIOS
-        datasets: [{
-            label: 'Média da nota de auto estima ideal',
-            data: [65, 59, 80, 81, 56, 55, 40],
-            fill: false,
-            borderColor: 'rgb(75, 192, 192)',
-            tension: 0.1
-        }]
-    };
+    // const dataAutoEstima = {
+    //     labels: ['Média de auto estima ideal', 'Média de auto estima ideal'], // AQUI SERIA COLOCADO A QUANTIDADE DE USUÁRIOS
+    //     datasets: [{
+    //         label: 'Média da nota de auto estima ideal',
+    //         data: [65, 59, 80, 81, 56, 55, 40],
+    //         fill: false,
+    //         borderColor: 'rgb(75, 192, 192)',
+    //         tension: 0.1
+    //     }]
+    // };
 
-    const configAutoEstima = {
-        type: 'line',
-        data: dataAutoEstima,
-    };
+    // const configAutoEstima = {
+    //     type: 'line',
+    //     data: dataAutoEstima,
+    // };
 
-    new Chart(autoEstima, configAutoEstima);
+    // new Chart(autoEstima, configAutoEstima);
 </script>
