@@ -185,13 +185,15 @@ body {
     margin-top: 6vh;
     margin-left: 2.5%;
     margin-bottom: 5vh;
+    padding: 3%;
 }
 
 .box-grafico-auto-estima H1 {
     color: #FFF;
     text-align: center;
-    font-size: 40px;
-    margin-top: 1vh;
+    font-size: 50px;
+    margin-top: -3vh;
+    /* margin-bottom: 5vh; */
 }
 
 .box-texto-motivacional {
@@ -244,6 +246,18 @@ body {
     margin-top: 10vh;
 }
 
-#grafico-auto-estima {
-    max-height: 82%;
+#kpi_auto_estima {
+    color: #DFA100;
+    font-size: 300px;
+    margin-top: -10vh;
+    text-align: start;
+    margin-left: 3%;
+}
+
+.text-kpi {
+    color: #FFF;
+    font-size: 30px;
+    text-align: left;
+    margin-left: 10%;
+    margin-top: 5%;
 }

@@ -88,9 +88,12 @@
 
         <div class="box-grafico-auto-estima">
 
-            <h1 class="bebas-neue-regular">AUTO ESTIMA</h1>
+            <h1 class="bebas-neue-regular">MÉDIA AUTO ESTIMA IDEAL</h1>
 
-            <canvas id="grafico-auto-estima"></canvas>
+            <div class="flex">
+                <h1 id="kpi_auto_estima" class="bebas-neue-regular"></h1> 
+                <h2 class="bebas-neue-regular text-kpi">Esta pesquisa foi feita com base nas respostas dos usuários. Segundo o questionário realizado a análise nos traz que essa é a nota média para uma auto estima ideal.</h2> 
+            </div>
         </div>
     </div>
 
@@ -114,6 +117,7 @@
 <script>
     plotarGraficoGenero();
     plotarGraficoDefasagem();
+    plotarKpiAutoEstima();
 
     function plotarGraficoGenero() {
     var qtdMulheres = sessionStorage.getItem('qtdMulheres');
@@ -156,10 +160,16 @@
 }
 
 function plotarGraficoDefasagem() {
-    var usuariosDesfocados = sessionStorage.getItem('usuariosDesfocados');
-    var usuariosDeconcentrados = sessionStorage.getItem('usuariosDeconcentrados');
-    var usuariosDescontinuos = sessionStorage.getItem('usuariosDescontinuos');
-    var usuariosIndispostos = sessionStorage.getItem('usuariosIndispostos');
+    var usuariosDesfocados = Number(sessionStorage.getItem('usuariosDesfocados'));
+    var usuariosDeconcentrados = Number(sessionStorage.getItem('usuariosDeconcentrados'));
+    var usuariosDescontinuos = Number(sessionStorage.getItem('usuariosDescontinuos'));
+    var usuariosIndispostos = Number(sessionStorage.getItem('usuariosIndispostos'));
+    var usuarios = Number(sessionStorage.getItem('usuarios'));
+
+    var usuariosDesfocadosPorcentagem = usuariosDesfocados * usuarios / 100;
+    var usuariosDeconcentradosPorcentagem = usuariosDeconcentrados * usuarios / 100;
+    var usuariosDescontinuosPorcentagem = usuariosDescontinuos * usuarios / 100;
+    var usuariosIndispostosPorcentagem = usuariosIndispostos * usuarios / 100;
 
     console.log('iniciando plotagem do gráfico...');
 
@@ -170,8 +180,8 @@ function plotarGraficoDefasagem() {
     let dados = {
         labels: labels,
         datasets: [{
-            label: 'Quantidade de usuários por defasagem',
-            data: [usuariosDesfocados, usuariosDeconcentrados, usuariosDescontinuos, usuariosIndispostos],
+            label: 'Porcentagem de usuários por defasagem',
+            data: [usuariosDesfocadosPorcentagem, usuariosDeconcentradosPorcentagem, usuariosDescontinuosPorcentagem, usuariosIndispostosPorcentagem],
             backgroundColor: [
                 'rgb(247, 223, 4, 0.2)',
                 'rgb(160, 38, 38, 0.2)',
@@ -201,58 +211,11 @@ function plotarGraficoDefasagem() {
     );
 }
 
-    // const defasagem = document.getElementById('grafico-defasagem');
+function plotarKpiAutoEstima() {
+    var autoEstimaIdeal = sessionStorage.getItem('autoEstimaIdeal');
 
-    // const dataDefasagem = {
-    //     labels: [
-    //         'Foco',
-    //         'Concentração',
-    //         'Continuidade',
-    //         'Indisposição',
-    //     ],
-    //     datasets: [{
-    //         label: 'Nível de defazagem',
-    //         data: [60, 50, 80, 100],
-    //         backgroundColor: [
-    //             'rgb(247, 223, 4, 0.2)',
-    //             'rgb(160, 38, 38, 0.2)',
-    //             'rgb(4, 68, 247, 0.2)',
-    //             'rgb(247, 4, 247, 0.2)',
-    //         ],
-    //         borderColor: [
-    //             'rgb(247, 223, 4)',
-    //             'rgb(160, 38, 38)',
-    //             'rgb(4, 68, 247)',
-    //             'rgb(247, 4, 247)',
-    //         ],
-    //         borderWidth: 1
-    //     }]
-    // };
+    kpi_auto_estima.innerHTML = `${autoEstimaIdeal}`; 
 
-    // const configDefasagem = {
-    //     type: 'bar',
-    //     data: dataDefasagem,
-    // };
+}
 
-    // new Chart(defasagem, configDefasagem);
-
-    // const autoEstima = document.getElementById('grafico-auto-estima');
-
-    // const dataAutoEstima = {
-    //     labels: ['Média de auto estima ideal', 'Média de auto estima ideal'], // AQUI SERIA COLOCADO A QUANTIDADE DE USUÁRIOS
-    //     datasets: [{
-    //         label: 'Média da nota de auto estima ideal',
-    //         data: [65, 59, 80, 81, 56, 55, 40],
-    //         fill: false,
-    //         borderColor: 'rgb(75, 192, 192)',
-    //         tension: 0.1
-    //     }]
-    // };
-
-    // const configAutoEstima = {
-    //     type: 'line',
-    //     data: dataAutoEstima,
-    // };
-
-    // new Chart(autoEstima, configAutoEstima);
 </script>

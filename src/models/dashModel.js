@@ -84,6 +84,16 @@ function pegarAutoEstimaIdeal() {
     return database.executar(instrucao);
 }
 
+function pegarUsuarios() {
+    var instrucao = `
+    select count(*) as usuarios from dados;
+    `;
+
+    console.log("Executando a instrução SQL: \n" + instrucao);
+
+    return database.executar(instrucao);
+}
+
 module.exports = {
     mostrarHomem,
     mostrarMulher,
@@ -92,5 +102,6 @@ module.exports = {
     pegarConcentracao,
     pegarContinuidade,
     pegarIndisposicao,
-    pegarAutoEstimaIdeal
+    pegarAutoEstimaIdeal,
+    pegarUsuarios
 }

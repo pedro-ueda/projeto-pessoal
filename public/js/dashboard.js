@@ -17,6 +17,7 @@ pegarConcentracao();
 pegarContinuidade();
 pegarIndisposicao();
 pegarAutoEstimaIdeal();
+pegarUsuarios();
 
 function mostrarHomem() {
 
@@ -188,7 +189,30 @@ function pegarAutoEstimaIdeal() {
 
                 respostaAutoEstimaIdeal.reverse();
 
-                sessionStorage.setItem('autoEstimaIdeal', `${respostaAutoEstimaIdeal[0].autoEstimaIdeal}`);
+                sessionStorage.setItem('autoEstimaIdeal', respostaAutoEstimaIdeal[0].autoEstimaIdeal);
+
+                // plotarGraficoAutoEstima(respostaAutoEstimaIdeal);
+
+            });
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+    })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+}
+
+function pegarUsuarios() {
+
+    fetch(`/dash/pegarUsuarios`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (respostaUsuarios) {
+                console.log(`Dados recebidos: ${JSON.stringify(respostaUsuarios)}`);
+
+                respostaUsuarios.reverse();
+
+                sessionStorage.setItem('usuarios', `${respostaUsuarios[0].usuarios}`);
 
                 // plotarGrafico(resposta, idAquario);
 

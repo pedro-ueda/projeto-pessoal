@@ -42,4 +42,10 @@ router.get("/pegarAutoEstimaIdeal", function (req, res) {
     // função a ser chamada quando acessar /carros/listar
     dashController.pegarAutoEstimaIdeal(req, res);
 });
+
+router.get("/pegarUsuarios", function (req, res) {
+    // função a ser chamada quando acessar /carros/listar
+    dashController.pegarUsuarios(req, res);
+});
+
 module.exports = router;
