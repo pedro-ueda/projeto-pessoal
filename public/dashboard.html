@@ -49,7 +49,7 @@
         </div>
 
         <div class="box-btn-login flex">
-            <a href="login.html"><button class="btn-login inter-titulo">LOGIN</button></a>
+            <a href="login.html"><button id="btn_login" class="btn-login inter-titulo">LOGIN</button></a>
         </div>
     </div>
 
@@ -91,8 +91,10 @@
             <h1 class="bebas-neue-regular">MÉDIA AUTO ESTIMA IDEAL</h1>
 
             <div class="flex">
-                <h1 id="kpi_auto_estima" class="bebas-neue-regular"></h1> 
-                <h2 class="bebas-neue-regular text-kpi">Esta pesquisa foi feita com base nas respostas dos usuários. Segundo o questionário realizado a análise nos traz que essa é a nota média para uma auto estima ideal.</h2> 
+                <h1 id="kpi_auto_estima" class="bebas-neue-regular"></h1>
+                <h2 class="bebas-neue-regular text-kpi">Esta pesquisa foi feita com base nas respostas dos usuários.
+                    Segundo o questionário realizado a análise nos traz que essa é a nota média para uma auto estima
+                    ideal.</h2>
             </div>
         </div>
     </div>
@@ -101,7 +103,16 @@
         <h3 class="bebas-neue-regular">VOCÊ <span style="color: #DFA100;">PODE</span> ALCANÇAR ISSO!</h3>
 
         <p class="texto-motivacional inter-500">
-            Se permita conhecer novas práticas, conheça melhor você e seu corpo! Saia da rotina, descubra novas aptidões em você e viva experiências novas. Alcance o corpo dos seus sonhos e tenha o conforto psicológico que você merece! Não espere pelo amanhã, pois você vive o hoje. A academia pode se tornar a sua maior aliada, basta você permitir! Começar a fazer academia é um passo incrível em direção a uma vida mais saudável e vibrante. Não se trata apenas de moldar seu corpo, mas também de fortalecer sua mente e espírito. Na academia, você encontrará não apenas máquinas e pesos, mas uma comunidade de apoio pronta para incentivá-lo em sua jornada de transformação. Cada gota de suor derramada é um investimento em si mesmo, uma declaração de compromisso com uma vida plena e ativa. Então, erga-se, vista suas roupas de treino e embarque nessa jornada rumo a uma versão melhor de si mesmo. Você é capaz de alcançar grandes feitos, e a academia será o palco onde você brilhará! 
+            Se permita conhecer novas práticas, conheça melhor você e seu corpo! Saia da rotina, descubra novas aptidões
+            em você e viva experiências novas. Alcance o corpo dos seus sonhos e tenha o conforto psicológico que você
+            merece! Não espere pelo amanhã, pois você vive o hoje. A academia pode se tornar a sua maior aliada, basta
+            você permitir! Começar a fazer academia é um passo incrível em direção a uma vida mais saudável e vibrante.
+            Não se trata apenas de moldar seu corpo, mas também de fortalecer sua mente e espírito. Na academia, você
+            encontrará não apenas máquinas e pesos, mas uma comunidade de apoio pronta para incentivá-lo em sua jornada
+            de transformação. Cada gota de suor derramada é um investimento em si mesmo, uma declaração de compromisso
+            com uma vida plena e ativa. Então, erga-se, vista suas roupas de treino e embarque nessa jornada rumo a uma
+            versão melhor de si mesmo. Você é capaz de alcançar grandes feitos, e a academia será o palco onde você
+            brilhará!
         </p>
         <h3 style="font-size: 50px;" class="bebas-neue-regular">COMECE AGORA A TREINAR E VEJA A <span
                 style="color: #DFA100;">DIFERENÇA</span> NA SUA VIDA!</h3>
@@ -115,107 +126,117 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
+
+    var nomeUsuario = sessionStorage.getItem('NOME_USUARIO');
+    console.log(nomeUsuario);
+
+    if (nomeUsuario == undefined) {
+        btn_login.innerHTML = 'LOGIN';
+    } else {
+        btn_login.innerHTML = `Olá, ${nomeUsuario}`;
+    }
+
+    function plotarGraficoGenero() {
+        var qtdMulheres = sessionStorage.getItem('qtdMulheres');
+        var qtdHomens = sessionStorage.getItem('qtdHomens');
+        var qtdOutros = sessionStorage.getItem('qtdOutros');
+
+        console.log('iniciando plotagem do gráfico...');
+
+        // Criando estrutura para plotar gráfico - labels
+        let labels = ['Homens', 'Mulher', 'Outros'];
+
+        // Criando estrutura para plotar gráfico - dados
+        let dados = {
+            labels: labels,
+            datasets: [{
+                data: [qtdHomens, qtdMulheres, qtdOutros],
+                backgroundColor: [
+                    'rgb(0, 132, 255)',
+                    'rgb(187, 78, 102)',
+                    'rgb(255, 205, 86)'
+                ]
+            }]
+        };
+
+        console.log('----------------------------------------------')
+        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+        console.log(qtdMulheres, qtdHomens, qtdOutros)
+
+        // Criando estrutura para plotar gráfico - config
+        const config = {
+            type: 'doughnut',
+            data: dados,
+        };
+
+        // Adicionando gráfico criado em div na tela
+        let myChart = new Chart(
+            document.getElementById(`grafico-genero`),
+            config
+        );
+    }
+
+    function plotarGraficoDefasagem() {
+        var usuariosDesfocados = Number(sessionStorage.getItem('usuariosDesfocados'));
+        var usuariosDeconcentrados = Number(sessionStorage.getItem('usuariosDeconcentrados'));
+        var usuariosDescontinuos = Number(sessionStorage.getItem('usuariosDescontinuos'));
+        var usuariosIndispostos = Number(sessionStorage.getItem('usuariosIndispostos'));
+        var usuarios = Number(sessionStorage.getItem('usuarios'));
+
+        var usuariosDesfocadosPorcentagem = usuariosDesfocados * usuarios / 100;
+        var usuariosDeconcentradosPorcentagem = usuariosDeconcentrados * usuarios / 100;
+        var usuariosDescontinuosPorcentagem = usuariosDescontinuos * usuarios / 100;
+        var usuariosIndispostosPorcentagem = usuariosIndispostos * usuarios / 100;
+
+        console.log('iniciando plotagem do gráfico...');
+
+        // Criando estrutura para plotar gráfico - labels
+        let labels = ['Foco', 'Concentração', 'Continuidade', 'Indisposição'];
+
+        // Criando estrutura para plotar gráfico - dados
+        let dados = {
+            labels: labels,
+            datasets: [{
+                label: 'Porcentagem de usuários por defasagem',
+                data: [usuariosDesfocadosPorcentagem, usuariosDeconcentradosPorcentagem, usuariosDescontinuosPorcentagem, usuariosIndispostosPorcentagem],
+                backgroundColor: [
+                    'rgb(247, 223, 4, 0.2)',
+                    'rgb(160, 38, 38, 0.2)',
+                    'rgb(4, 68, 247, 0.2)',
+                    'rgb(247, 4, 247, 0.2)',
+                ],
+                borderColor: [
+                    'rgb(247, 223, 4)',
+                    'rgb(160, 38, 38)',
+                    'rgb(4, 68, 247)',
+                    'rgb(247, 4, 247)',
+                ],
+                borderWidth: 1
+            }]
+        };
+
+        // Criando estrutura para plotar gráfico - config
+        const config = {
+            type: 'bar',
+            data: dados,
+        };
+
+        // Adicionando gráfico criado em div na tela
+        let myChart = new Chart(
+            document.getElementById(`grafico-defasagem`),
+            config
+        );
+    }
+
+    function plotarKpiAutoEstima() {
+        var autoEstimaIdeal = sessionStorage.getItem('autoEstimaIdeal');
+
+        kpi_auto_estima.innerHTML = `${autoEstimaIdeal}`;
+
+    }
+
     plotarGraficoGenero();
     plotarGraficoDefasagem();
     plotarKpiAutoEstima();
-
-    function plotarGraficoGenero() {
-    var qtdMulheres = sessionStorage.getItem('qtdMulheres');
-    var qtdHomens = sessionStorage.getItem('qtdHomens');
-    var qtdOutros = sessionStorage.getItem('qtdOutros');
-
-    console.log('iniciando plotagem do gráfico...');
-
-    // Criando estrutura para plotar gráfico - labels
-    let labels = ['Homens', 'Mulher', 'Outros'];
-
-    // Criando estrutura para plotar gráfico - dados
-    let dados = {
-        labels: labels,
-        datasets: [{
-            data: [qtdHomens, qtdMulheres, qtdOutros],
-            backgroundColor: [
-                'rgb(0, 132, 255)',
-                'rgb(187, 78, 102)',
-                'rgb(255, 205, 86)'
-            ]
-        }]
-    };
-
-    console.log('----------------------------------------------')
-    console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
-    console.log(qtdMulheres, qtdHomens, qtdOutros)
-
-    // Criando estrutura para plotar gráfico - config
-    const config = {
-        type: 'doughnut',
-        data: dados,
-    };
-
-    // Adicionando gráfico criado em div na tela
-    let myChart = new Chart(
-        document.getElementById(`grafico-genero`),
-        config
-    );
-}
-
-function plotarGraficoDefasagem() {
-    var usuariosDesfocados = Number(sessionStorage.getItem('usuariosDesfocados'));
-    var usuariosDeconcentrados = Number(sessionStorage.getItem('usuariosDeconcentrados'));
-    var usuariosDescontinuos = Number(sessionStorage.getItem('usuariosDescontinuos'));
-    var usuariosIndispostos = Number(sessionStorage.getItem('usuariosIndispostos'));
-    var usuarios = Number(sessionStorage.getItem('usuarios'));
-
-    var usuariosDesfocadosPorcentagem = usuariosDesfocados * usuarios / 100;
-    var usuariosDeconcentradosPorcentagem = usuariosDeconcentrados * usuarios / 100;
-    var usuariosDescontinuosPorcentagem = usuariosDescontinuos * usuarios / 100;
-    var usuariosIndispostosPorcentagem = usuariosIndispostos * usuarios / 100;
-
-    console.log('iniciando plotagem do gráfico...');
-
-    // Criando estrutura para plotar gráfico - labels
-    let labels = ['Foco', 'Concentração', 'Continuidade', 'Indisposição'];
-
-    // Criando estrutura para plotar gráfico - dados
-    let dados = {
-        labels: labels,
-        datasets: [{
-            label: 'Porcentagem de usuários por defasagem',
-            data: [usuariosDesfocadosPorcentagem, usuariosDeconcentradosPorcentagem, usuariosDescontinuosPorcentagem, usuariosIndispostosPorcentagem],
-            backgroundColor: [
-                'rgb(247, 223, 4, 0.2)',
-                'rgb(160, 38, 38, 0.2)',
-                'rgb(4, 68, 247, 0.2)',
-                'rgb(247, 4, 247, 0.2)',
-            ],
-            borderColor: [
-                'rgb(247, 223, 4)',
-                'rgb(160, 38, 38)',
-                'rgb(4, 68, 247)',
-                'rgb(247, 4, 247)',
-            ],
-            borderWidth: 1
-        }]
-    };
-
-    // Criando estrutura para plotar gráfico - config
-    const config = {
-        type: 'bar',
-        data: dados,
-    };
-
-    // Adicionando gráfico criado em div na tela
-    let myChart = new Chart(
-        document.getElementById(`grafico-defasagem`),
-        config
-    );
-}
-
-function plotarKpiAutoEstima() {
-    var autoEstimaIdeal = sessionStorage.getItem('autoEstimaIdeal');
-
-    kpi_auto_estima.innerHTML = `${autoEstimaIdeal}`; 
-
-}
 
 </script>

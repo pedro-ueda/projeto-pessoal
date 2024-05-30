@@ -51,7 +51,7 @@
         </div>
 
         <div class="box-btn-login flex">
-            <a href="login.html"><button class="btn-login inter-titulo">LOGIN</button></a>
+            <a href="login.html"><button id="btn_login" class="btn-login inter-titulo">LOGIN</button></a>
         </div>
     </div>
 
@@ -72,3 +72,14 @@
 </html>
 
 <script src="./js/quiz.js"></script>
+
+<script>
+    var nomeUsuario = sessionStorage.getItem('NOME_USUARIO');
+    console.log(nomeUsuario);
+
+    if (nomeUsuario == undefined) {
+        btn_login.innerHTML = 'LOGIN';
+    } else {
+        btn_login.innerHTML = `Olá, ${nomeUsuario}`;
+    }
+</script>
