@@ -215,8 +215,6 @@ if (email == null) {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js]
                 pergunta1Server: respostasUsuarios[0],
                 pergunta2Server: respostasUsuarios[1],
                 pergunta3Server: respostasUsuarios[2],
