@@ -14,6 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="icon" href="./assets/logologo.svg">
+    <script src="https://unpkg.com/scrollreveal"></script>
 </head>
 
 <body>
@@ -56,15 +57,18 @@
     </div>
 
     <!-- CONTEUDO -->
-    <h1 class="bebas-neue-regular titulo-principal">LEIA ALGUMAS ORIENTAÇÕES PARA VOCÊ ESTÁ <span class="amarelo">INICIANDO</span>!</h1>
+    <h1 class="bebas-neue-regular titulo-principal">LEIA ALGUMAS ORIENTAÇÕES PARA VOCÊ QUE ESTÁ <span
+            class="amarelo">INICIANDO</span>!</h1>
 
-    <div class="conteudo">
+    <div class="conteudo esquerdo">
         <h1 class="titulo bebas-neue-regular">
             QUANTIDADE <span style="color: #FB6060;">NÃO</span> É QUALIDADE!
         </h1>
 
         <p class="inter-500">
-            Não acredite que quanto mais vezes você ir à academia melhor será para o seu corpo! Apesar de treinar grupo musculares diferentes, o Sistema Nervoso Central é um dos principais responsáveis por fazer força, e adivinha, em todo treino você utiliza-o. E como todo músculo precisa de descanso, com o SNC não é diferente! 
+            Não acredite que quanto mais vezes você ir à academia melhor será para o seu corpo! Apesar de treinar grupo
+            musculares diferentes, o Sistema Nervoso Central é um dos principais responsáveis por fazer força, e
+            adivinha, em todo treino você utilizá-lo. E como todo músculo precisa de descanso, com o SNC não é diferente!
         </p>
     </div>
 
@@ -74,17 +78,21 @@
         </h1>
 
         <p class="inter-500">
-            Escolha a divisão de treino que melhor se encaixa na sua rotina, por exemplo, se você só consegue ir na academia 3 dias na semana, escolha uma divisão ABC. Divisão de treino é algo muito pessoal, então priorize a sua divisão, não fique se baseando em divisões de famosos até porque eles não tem a mesma rotina que você!
+            Escolha a divisão de treino que melhor se encaixa na sua rotina, por exemplo, se você só consegue ir na
+            academia 3 dias na semana, escolha uma divisão ABC. Divisão de treino é algo muito pessoal, então priorize a
+            sua divisão, não fique se baseando em divisões de famosos até porque eles não tem a mesma rotina que você!
         </p>
     </div>
 
-    <div class="conteudo">
+    <div class="conteudo esquerdo">
         <h1 class="titulo bebas-neue-regular">
-            ENTENDA SOBRE <span style="color: #9b60fb;">TENSÃO MECÂNICA</span> E <span style="color: #9b60fb;">HIPERTROFIA</span>!
+            ENTENDA SOBRE <span style="color: #9b60fb;">TENSÃO MECÂNICA</span> E <span
+                style="color: #9b60fb;">HIPERTROFIA</span>!
         </h1>
 
         <p class="inter-500">
-            Os maiores aliados da sua evolução durante seu treinamento vão ser a tensão mecânica e a hipertrofia. Você pode encontrar muito conteúdo sobre esses assuntos nas redes sociais como Instagram, TikTok entre outras.
+            Os maiores aliados da sua evolução durante seu treinamento vão ser a tensão mecânica e a hipertrofia. Você
+            pode encontrar muito conteúdo sobre esses assuntos nas redes sociais como Instagram, TikTok entre outras.
         </p>
     </div>
 
@@ -94,10 +102,12 @@
         </h1>
 
         <p class="inter-500">
-            Suplementação é importante sim, mas NÃO é tudo! Creatina, Whey Protein, e todos os outros suplementos ajudam sim, mas você pode ter ótimos resultados apenas com alimentação correta e uma rotina de treino regrada.
+            Suplementação é importante sim, mas NÃO é tudo! Creatina, Whey Protein, e todos os outros suplementos ajudam
+            sim, mas você pode ter ótimos resultados apenas com alimentação correta e uma rotina de treino regrada.
         </p>
     </div>
 </body>
+
 </html>
 
 <script>
@@ -109,4 +119,33 @@
     } else {
         btn_login.innerHTML = `Olá, ${nomeUsuario}`;
     }
+
+    ScrollReveal().reveal('.titulo-principal',
+        {
+            delay: 200,
+            origin: 'left',
+            distance: '1040px'
+        });
+
+    ScrollReveal().reveal('.titulo-principal',
+        {
+            delay: 200,
+            origin: 'left',
+            distance: '1040px'
+        });
+
+    ScrollReveal().reveal('.esquerdo',
+        {
+            delay: 200,
+            origin: 'top',
+            distance: '30px'
+        });
+
+    ScrollReveal().reveal('.direito',
+        {
+            delay: 200,
+            origin: 'bottom',
+            distance: '30px'
+        });
+
 </script>

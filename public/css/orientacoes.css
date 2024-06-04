@@ -57,6 +57,7 @@ body {
     position: fixed;
     top: 0;
     transition: .3s;
+    z-index: 100000;
   }
 
 .nav-bar a {
@@ -128,7 +129,7 @@ body {
     font-size: 80px;
     color: #FFF;
     text-align: center;
-    margin: 5% 0;
+    margin: 8% 0 0 5%;
 }
 
 .conteudo {

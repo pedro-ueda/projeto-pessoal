@@ -1,92 +1,31 @@
 var database = require("../database/config");
 
-function mostrarHomem() {
+function pegarDados() {
     var instrucao = `
-    select count(pergunta1) as homem from dados where pergunta1 = 'Homem';
-    `;
+    SELECT
+  -- Contagem de respostas por pergunta 1
+  (SUM(CASE WHEN pergunta1 = 'Homem' THEN 1 ELSE 0 END)) AS homem,
+  (SUM(CASE WHEN pergunta1 = 'Mulher' THEN 1 ELSE 0 END)) AS mulher,
+  (SUM(CASE WHEN pergunta1 = 'Outros' THEN 1 ELSE 0 END)) AS outros,
 
-    console.log("Executando a instrução SQL: \n" + instrucao);
+  -- Contagem de respostas 'Sim' por pergunta 2
+  (SUM(CASE WHEN pergunta2 = 'Sim' THEN 1 ELSE 0 END)) AS desfocados,
 
-    return database.executar(instrucao);
-}
+  -- Contagem de respostas 'Sim' por pergunta 3
+  (SUM(CASE WHEN pergunta3 = 'Sim' THEN 1 ELSE 0 END)) AS desconcentrados,
 
-function mostrarMulher() {
-    var instrucao = `
-    select count(pergunta1) as mulher from dados where pergunta1 = 'Mulher';
-    `;
+  -- Contagem de respostas 'Sim' por pergunta 4
+  (SUM(CASE WHEN pergunta4 = 'Sim' THEN 1 ELSE 0 END)) AS descontinuos,
 
-    console.log("Executando a instrução SQL: \n" + instrucao);
+  -- Contagem de respostas 'Sim' por pergunta 5
+  (SUM(CASE WHEN pergunta5 = 'Sim' THEN 1 ELSE 0 END)) AS indispostos,
 
-    return database.executar(instrucao);
-}
+  -- Média truncada da pergunta 7
+  TRUNCATE(AVG(pergunta7), 0) AS autoEstimaIdeal,
 
-function mostrarOutros() {
-    var instrucao = `
-    select count(pergunta1) as outros from dados where pergunta1 = 'Outros';
-    `;
-
-    console.log("Executando a instrução SQL: \n" + instrucao);
-
-    return database.executar(instrucao);
-}
-
-function pegarFoco() {
-    var instrucao = `
-    select count(pergunta2) as desfocados from dados where pergunta2 = 'Sim';
-
-    `;
-
-    console.log("Executando a instrução SQL: \n" + instrucao);
-
-    return database.executar(instrucao);
-}
-
-function pegarConcentracao() {
-    var instrucao = `
-    select count(pergunta3) as desconcentrados from dados where pergunta3 = 'Sim';
-
-    `;
-
-    console.log("Executando a instrução SQL: \n" + instrucao);
-
-    return database.executar(instrucao);
-}
-
-function pegarContinuidade() {
-    var instrucao = `
-    select count(pergunta4) as descontinuos from dados where pergunta4 = 'Sim';
-
-    `;
-
-    console.log("Executando a instrução SQL: \n" + instrucao);
-
-    return database.executar(instrucao);
-}
-
-function pegarIndisposicao() {
-    var instrucao = `
-    select count(pergunta5) as indispostos from dados where pergunta5 = 'Sim';
-
-    `;
-
-    console.log("Executando a instrução SQL: \n" + instrucao);
-
-    return database.executar(instrucao);
-}
-
-function pegarAutoEstimaIdeal() {
-    var instrucao = `
-    select truncate(avg(pergunta7), 0) as autoEstimaIdeal from dados;
-    `;
-
-    console.log("Executando a instrução SQL: \n" + instrucao);
-
-    return database.executar(instrucao);
-}
-
-function pegarUsuarios() {
-    var instrucao = `
-    select count(*) as usuarios from dados;
+  -- Contagem total de usuários
+  COUNT(*) AS usuarios
+FROM dados;
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucao);
@@ -95,13 +34,5 @@ function pegarUsuarios() {
 }
 
 module.exports = {
-    mostrarHomem,
-    mostrarMulher,
-    mostrarOutros,
-    pegarFoco,
-    pegarConcentracao,
-    pegarContinuidade,
-    pegarIndisposicao,
-    pegarAutoEstimaIdeal,
-    pegarUsuarios
+    pegarDados
 }

@@ -136,21 +136,72 @@
         btn_login.innerHTML = `Olá, ${nomeUsuario}`;
     }
 
-    function plotarGraficoGenero() {
-        var qtdMulheres = sessionStorage.getItem('qtdMulheres');
-        var qtdHomens = sessionStorage.getItem('qtdHomens');
-        var qtdOutros = sessionStorage.getItem('qtdOutros');
+    obterDadosGrafico();
 
-        console.log('iniciando plotagem do gráfico...');
+    function obterDadosGrafico() {
 
-        // Criando estrutura para plotar gráfico - labels
-        let labels = ['Homens', 'Mulher', 'Outros'];
+        fetch(`/dash/pegarDados`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    resposta.reverse();
 
-        // Criando estrutura para plotar gráfico - dados
-        let dados = {
-            labels: labels,
+                    plotarGrafico(resposta);
+
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    function plotarGrafico(resposta) {
+
+        let labelsGeneros = ['Homens', 'Mulher', 'Outros'];
+        let labelsPorcentagens = ['Desfoco', 'Desconcentração', 'Descontinuidade', 'Indisposição'];
+
+        var dadosGeneros = [];
+        var dadosPorcentagem = [];
+        var desfoco = 0;
+        var desconcentracao = 0;
+        var indisposição = 0;
+        var descontinuidade = 0;
+        var autoEstima = 0;
+        var usuarios = 0;
+
+        console.log(resposta);
+
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            console.log(registro);
+            dadosGeneros.push(registro.homem);
+            dadosGeneros.push(registro.mulher);
+            dadosGeneros.push(registro.outros);
+
+            desfoco = registro.desfocados;
+            desconcentracao = registro.desconcentrados;
+            descontinuidade = registro.descontinuos;
+            indisposição = registro.indispostos;
+            autoEstima = registro.autoEstimaIdeal;
+            usuarios = registro.usuarios;
+        }
+
+        var desfocoPorcentagem = desfoco * usuarios / 100;
+        var desconcentracaoPorcentagem = desconcentracao * usuarios / 100;
+        var descontinuidadePorcentagem = descontinuidade * usuarios / 100;
+        var indisposiçãoPorcentagem = indisposição * usuarios / 100;
+
+        dadosPorcentagem.push(desfocoPorcentagem.toFixed());
+        dadosPorcentagem.push(desconcentracaoPorcentagem.toFixed());
+        dadosPorcentagem.push(descontinuidadePorcentagem.toFixed());
+        dadosPorcentagem.push(indisposiçãoPorcentagem.toFixed());
+
+        var dadosGeneros = {
+            labels: labelsGeneros,
             datasets: [{
-                data: [qtdHomens, qtdMulheres, qtdOutros],
+                data: dadosGeneros,
                 backgroundColor: [
                     'rgb(0, 132, 255)',
                     'rgb(187, 78, 102)',
@@ -159,46 +210,21 @@
             }]
         };
 
-        console.log('----------------------------------------------')
-        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
-        console.log(qtdMulheres, qtdHomens, qtdOutros)
-
-        // Criando estrutura para plotar gráfico - config
         const config = {
             type: 'doughnut',
-            data: dados,
+            data: dadosGeneros,
         };
 
-        // Adicionando gráfico criado em div na tela
         let myChart = new Chart(
             document.getElementById(`grafico-genero`),
             config
         );
-    }
 
-    function plotarGraficoDefasagem() {
-        var usuariosDesfocados = Number(sessionStorage.getItem('usuariosDesfocados'));
-        var usuariosDeconcentrados = Number(sessionStorage.getItem('usuariosDeconcentrados'));
-        var usuariosDescontinuos = Number(sessionStorage.getItem('usuariosDescontinuos'));
-        var usuariosIndispostos = Number(sessionStorage.getItem('usuariosIndispostos'));
-        var usuarios = Number(sessionStorage.getItem('usuarios'));
-
-        var usuariosDesfocadosPorcentagem = usuariosDesfocados * usuarios / 100;
-        var usuariosDeconcentradosPorcentagem = usuariosDeconcentrados * usuarios / 100;
-        var usuariosDescontinuosPorcentagem = usuariosDescontinuos * usuarios / 100;
-        var usuariosIndispostosPorcentagem = usuariosIndispostos * usuarios / 100;
-
-        console.log('iniciando plotagem do gráfico...');
-
-        // Criando estrutura para plotar gráfico - labels
-        let labels = ['Foco', 'Concentração', 'Continuidade', 'Indisposição'];
-
-        // Criando estrutura para plotar gráfico - dados
-        let dados = {
-            labels: labels,
+        var dadosPorcentagem = {
+            labels: labelsPorcentagens,
             datasets: [{
-                label: 'Porcentagem de usuários por defasagem',
-                data: [usuariosDesfocadosPorcentagem, usuariosDeconcentradosPorcentagem, usuariosDescontinuosPorcentagem, usuariosIndispostosPorcentagem],
+                label: 'Porcentagem dos usuários',
+                data: dadosPorcentagem,
                 backgroundColor: [
                     'rgb(247, 223, 4, 0.2)',
                     'rgb(160, 38, 38, 0.2)',
@@ -215,28 +241,16 @@
             }]
         };
 
-        // Criando estrutura para plotar gráfico - config
-        const config = {
+        const config2 = {
             type: 'bar',
-            data: dados,
+            data: dadosPorcentagem  ,
         };
 
-        // Adicionando gráfico criado em div na tela
-        let myChart = new Chart(
+        let myChart2 = new Chart(
             document.getElementById(`grafico-defasagem`),
-            config
+            config2
         );
+
+         kpi_auto_estima.innerHTML = `${autoEstima}`;
     }
-
-    function plotarKpiAutoEstima() {
-        var autoEstimaIdeal = sessionStorage.getItem('autoEstimaIdeal');
-
-        kpi_auto_estima.innerHTML = `${autoEstimaIdeal}`;
-
-    }
-
-    plotarGraficoGenero();
-    plotarGraficoDefasagem();
-    plotarKpiAutoEstima();
-
 </script>

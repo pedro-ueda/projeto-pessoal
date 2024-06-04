@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <link rel="icon" href="./assets/logologo.svg">
+    <script src="https://unpkg.com/scrollreveal"></script>
 </head>
 
 <body>
@@ -27,15 +28,21 @@
         </div>
 
         <div class="nav-link">
-            <a href="orientacoes.html"><p class="inter-titulo">ORIENTAÇÕES</p></a>
+            <a href="orientacoes.html">
+                <p class="inter-titulo">ORIENTAÇÕES</p>
+            </a>
         </div>
 
         <div class="nav-link">
-           <a href="quiz.html"><p class="inter-titulo">QUESTIONÁRIO ESPECIAL</p></a>
+            <a href="quiz.html">
+                <p class="inter-titulo">QUESTIONÁRIO ESPECIAL</p>
+            </a>
         </div>
 
         <div class="nav-link">
-           <a href="sobreMim.html"><p class="inter-titulo">SOBRE MIM </p></a>
+            <a href="sobreMim.html">
+                <p class="inter-titulo">SOBRE MIM </p>
+            </a>
         </div>
 
         <div class="box-btn-login flex">
@@ -48,7 +55,7 @@
         <div class="circulo-secao1 sombra"></div>
 
         <div class="box-beneficios-psicologicos">
-            <h1 class="inter-titulo">BENEFÍCIOS PSICOLÓGICOS</h1>
+            <h1 id="beneficios-psicologicos" class="inter-titulo">BENEFÍCIOS PSICOLÓGICOS</h1>
         </div>
 
         <div class="box-maior-conteudo flex">
@@ -139,9 +146,44 @@
     var nomeUsuario = sessionStorage.getItem('NOME_USUARIO');
     console.log(nomeUsuario);
 
-    if(nomeUsuario == undefined){
+    if (nomeUsuario == undefined) {
         btn_login.innerHTML = 'LOGIN';
     } else {
         btn_login.innerHTML = `Olá, ${nomeUsuario}`;
     }
+
+    ScrollReveal().reveal('#beneficios-psicologicos',
+        {
+            delay: 300,
+            distance: '40px'
+        });
+
+    ScrollReveal().reveal('.box-maior-conteudo',
+        {
+            delay: 700,
+            origin: 'left',
+            distance: '40px'
+        });
+
+    ScrollReveal().reveal('.box-maior-conteudo2',
+        {
+            delay: 300,
+            origin: 'right',
+            distance: '40px'
+        });
+
+    ScrollReveal().reveal('.box-maior-conteudo3',
+        {
+            delay: 300,
+            origin: 'left',
+            distance: '40px'
+        });
+
+    ScrollReveal().reveal('.box-maior-conteudo4',
+        {
+            delay: 300,
+            origin: 'right',
+            distance: '40px'
+        });
+
 </script>

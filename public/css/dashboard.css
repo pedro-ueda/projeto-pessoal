@@ -248,10 +248,10 @@ body {
 
 #kpi_auto_estima {
     color: #DFA100;
-    font-size: 300px;
+    font-size: 260px;
     margin-top: -10vh;
     text-align: start;
-    margin-left: 3%;
+    margin-left: 1%;
 }
 
 .text-kpi {
@@ -259,5 +259,5 @@ body {
     font-size: 30px;
     text-align: left;
     margin-left: 10%;
-    margin-top: 5%;
+    margin-top: 2%;
 }
