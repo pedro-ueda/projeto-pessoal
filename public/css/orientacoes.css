@@ -165,7 +165,7 @@ body {
     color: #FFF;
     font-size: 80px;
     text-align: center;
-    margin: 8% 0 0 0;
+    margin: 4% 0 4% 0;
 }
 
 .titulo-exercicio {
@@ -175,8 +175,6 @@ body {
 }
 
 .box-card {
-    margin-top: 5%;
-    margin-bottom: 5%;
     flex-direction: column;
     width: 22%;
     height: 80vh;
@@ -189,4 +187,18 @@ body {
     border-radius: 20px;
     background-color: #DFA100;
     margin-bottom: 3%;
+    cursor: pointer;
+}
+
+.box-video {
+    width: 60%;
+    height: 70vh;
+    border: 8px solid #FFF;
+    margin: 0 auto;
+    margin-bottom: 3%;
+}
+
+.video {
+    width: 100%;
+    height: 100%;
 }
