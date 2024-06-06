@@ -173,7 +173,9 @@
 
         console.log(resposta);
 
-        for (i = 0; i < resposta.length; i++) {
+        var tamanhoResposta = resposta.length;
+
+        for (i = 0; i < tamanhoResposta; i++) {
             var registro = resposta[i];
             console.log(registro);
             dadosGeneros.push(registro.homem);
@@ -188,11 +190,10 @@
             usuarios = registro.usuarios;
         }
 
-        var desfocoPorcentagem = desfoco * usuarios / 100;
-        var desconcentracaoPorcentagem = desconcentracao * usuarios / 100;
-        var descontinuidadePorcentagem = descontinuidade * usuarios / 100;
-        var indisposiçãoPorcentagem = indisposição * usuarios / 100;
-
+        var desfocoPorcentagem = (desfoco / usuarios) * 100;
+        var desconcentracaoPorcentagem = (desconcentracao / usuarios) * 100;
+        var descontinuidadePorcentagem = (descontinuidade / usuarios) * 100;
+        var indisposiçãoPorcentagem = (indisposição / usuarios) * 100;
         dadosPorcentagem.push(desfocoPorcentagem.toFixed());
         dadosPorcentagem.push(desconcentracaoPorcentagem.toFixed());
         dadosPorcentagem.push(descontinuidadePorcentagem.toFixed());
@@ -220,7 +221,7 @@
             config
         );
 
-        var dadosPorcentagem = {
+        var dataPorcentagem = {
             labels: labelsPorcentagens,
             datasets: [{
                 label: 'Porcentagem dos usuários',
@@ -243,7 +244,7 @@
 
         const config2 = {
             type: 'bar',
-            data: dadosPorcentagem  ,
+            data: dataPorcentagem  ,
         };
 
         let myChart2 = new Chart(

@@ -31,3 +31,23 @@ create table login (
     email varchar(90),
     senha varchar(90)
 );
+
+insert into usuario (nome, email, senha) values
+('Pedro', 'pedro@sptech.school', 'Pedro1205*');
+
+insert into usuario (nome, email, senha) values ('Joana', 'joana@example.com', 'Joana#789');
+insert into usuario (nome, email, senha) values ('Mateus', 'mateus@gmail.com', 'Mateus123!');
+insert into usuario (nome, email, senha) values ('Carla', 'carla@hotmail.com', 'Carla456&');
+insert into usuario (nome, email, senha) values ('Lucas', 'lucas@yahoo.com', 'Lucas@2024');
+insert into usuario (nome, email, senha) values ('Ana', 'ana@outlook.com', 'Ana987*');
+
+insert into dados (fkUsuario, pergunta1, pergunta2, pergunta3, pergunta4, pergunta5, pergunta6, pergunta7) values 
+(1, 'Sim', 'Sim', 'Sim', 'Sim', 'Sim', 2, 10 ),
+(2, 'Sim', 'Sim', 'Não', 'Sim', 'Não', 3, 9),
+(3, 'Não', 'Sim', 'Não', 'Não', 'Sim', 1, 10),
+(4, 'Sim', 'Não', 'Sim', 'Sim', 'Não', 3, 8),
+(5, 'Não', 'Não', 'Sim', 'Sim', 'Sim', 4, 10),
+(6, 'Sim', 'Sim', 'Sim', 'Não', 'Sim', 1, 9);
+
+
+select * from usuario;

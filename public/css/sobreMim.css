@@ -1,161 +1,181 @@
 .inter-titulo {
-    font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 800;
-    font-style: normal;
-    font-variation-settings:
-        "slnt" 0;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+  font-variation-settings: "slnt" 0;
 }
 
 .inter-p {
-    font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 500;
-    font-style: normal;
-    font-variation-settings:"slnt" 0;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings: "slnt" 0;
 }
 
 .bebas-neue-regular {
-    font-family: "Bebas Neue", sans-serif;
-    font-weight: 400;
-    font-style: normal;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: #333333;
+  background-color: #333333;
 }
 
 .flex {
-    display: flex;
+  display: flex;
 }
 
 .amarelo {
-    color: #DFA100;
+  color: #dfa100;
 }
 
 .sombra {
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
 }
 
 /* NAVBAR  */
 .nav-bar {
-    width: 100%;
-    height: 10vh;
-    gap: 5%;
-    padding-left: 6rem;
-    background-color: #2c2c2c;
-    position: fixed;
-    top: 0;
-    transition: .3s;
+  width: 100%;
+  height: 10vh;
+  gap: 5%;
+  padding-left: 6rem;
+  background-color: #2c2c2c;
+  position: fixed;
+  top: 0;
+  transition: 0.3s;
 }
 
 .nav-bar a {
-    text-decoration: none;
-    color: #FFF;
-    cursor: pointer;
-  }
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+}
 
 .nav-link {
-    display: flex;
-    width: fit-content;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
-    color: #FFF;
+  display: flex;
+  width: fit-content;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
 }
 
 .box-logo {
-    width: 14%;
+  width: 14%;
 }
 
 .box-logo a {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    text-decoration: none;
-    padding: 1rem;
-    align-items: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  text-decoration: none;
+  padding: 1rem;
+  align-items: center;
 }
 
 .box-logo a img {
-    width: 17%;
-    margin-right: 1rem;
+  width: 17%;
+  margin-right: 1rem;
 }
 
 .box-logo a p {
-    color: #FFB904;
+  color: #ffb904;
 }
 
 .box-btn-login {
-    width: 13%;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
+  width: 13%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
 }
 
 .box-btn-login a {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
 }
 
 .btn-login {
-    width: 70%;
-    height: 70%;
-    border: none;
-    background-color: #DFA100;
-    color: #FFFFFF;
-    font-size: 1.1rem;
-    border-radius: 5px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, .3);
-    cursor: pointer;
+  width: 70%;
+  height: 70%;
+  border: none;
+  background-color: #dfa100;
+  color: #ffffff;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
 
 .box-conteudo {
-    width: 90%;
-    height: fit-content;
-    margin: 8% 6rem;
+  width: 90%;
+  height: fit-content;
+  margin: 8% 6rem;
 }
 
 .box-texto {
-    width: 75%;
-    height: 100%;
-    flex-direction: column;
+  width: 75%;
+  height: 100%;
+  flex-direction: column;
 }
 
 .box-foto {
-    width: 25%;
-    height: 100%;
-    margin-left: 3%;
+  width: 25%;
+  height: 100%;
+  margin-left: 3%;
 }
 
-.box-foto img{
-    width: 100%;
-    margin-top: 45%;
-    border: solid 15px #FFF;
+.box-foto img {
+  width: 100%;
+  margin-top: 45%;
+  border: solid 15px #fff;
 }
 
 .box-texto h1 {
-    height: 20%;
-    color: #FFF;
-    font-size: 50px;
+  height: 20%;
+  color: #fff;
+  font-size: 50px;
 }
 
 .box-texto p {
-    height: 80%;
-    color: #FFF;
+  height: 80%;
+  color: #fff;
 }
 
 .sub-titulo {
-    color: #FFF;
-    font-size: 32px;
-    margin-top: 3%;
+  color: #fff;
+  font-size: 32px;
+  margin-top: 3%;
+}
+
+.titulo-principal {
+  background-color: #dfa100;
+  color: #fff;
+  font-size: 80px;
+  text-align: center;
+  margin: 4% 0 4% 0;
+}
+
+.box-video {
+    width: fit-content;
+    height: 80vh;
+    border: 8px solid #dfa100;
+    margin-bottom: 3%;
+    box-shadow: 0 0 25px #dfa100;
+}
+
+.box-video video {
+    width: 100%;
+    height: 100%;
 }
